@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Sahab - AI Student Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            🤖
+            <span>Master Sahab</span>
+        </div>
+
+        <nav>
+            <button class="nav-item active" onclick="showPage('dashboard', this)">
+                🏠 <span>Dashboard</span>
+            </button>
+
+            <button class="nav-item" onclick="showPage('chat', this)">
+                💬 <span>AI Chat</span>
+            </button>
+
+            <button class="nav-item" onclick="showPage('subjects', this)">
+                📚 <span>Subjects</span>
+            </button>
+
+            <button class="nav-item" onclick="showPage('goals', this)">
+                🎯 <span>Daily Goals</span>
+            </button>
+
+            <button class="nav-item" onclick="showPage('progress', this)">
+                📊 <span>Progress</span>
+            </button>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="online-small">
+                <span></span> AI Online
+            </div>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- DASHBOARD -->
+        <section id="dashboard-page" class="page active-page">
+
+            <header class="dashboard-header">
+                <div>
+                    <h1>Welcome back, Student 👋</h1>
+                    <p>Let's make today a productive study day.</p>
+                </div>
+
+                <div class="date-box">
+                    📅 <span id="today-date"></span>
+                </div>
+            </header>
+
+
+            <!-- STAT CARDS -->
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon">📚</div>
+                    <div>
+                        <h3>4</h3>
+                        <p>Subjects</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">🎯</div>
+                    <div>
+                        <h3>2</h3>
+                        <p>Goals Today</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">⏱️</div>
+                    <div>
+                        <h3>1h 45m</h3>
+                        <p>Study Target</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">📈</div>
+                    <div>
+                        <h3>72%</h3>
+                        <p>Progress</p>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- DASHBOARD GRID -->
+            <div class="dashboard-grid">
+
+                <!-- TODAY PLAN -->
+                <div class="dashboard-card study-plan">
+
+                    <div class="card-header">
+                        <div>
+                            <h2>📖 Today's Study Plan</h2>
+                            <p>Your planned study sessions</p>
+                        </div>
+                    </div>
+
+                    <div class="study-item">
+                        <div class="subject-icon">☕</div>
+                        <div class="study-info">
+                            <h3>Java</h3>
+                            <p>OOP & Inheritance</p>
+                        </div>
+                        <div class="study-time">45 min</div>
+                    </div>
+
+                    <div class="study-item">
+                        <div class="subject-icon">🐍</div>
+                        <div class="study-info">
+                            <h3>Python</h3>
+                            <p>Functions & Modules</p>
+                        </div>
+                        <div class="study-time">30 min</div>
+                    </div>
+
+                    <div class="study-item">
+                        <div class="subject-icon">💻</div>
+                        <div class="study-info">
+                            <h3>Computer Networks</h3>
+                            <p>OSI Model</p>
+                        </div>
+                        <div class="study-time">30 min</div>
+                    </div>
+
+                </div>
+
+
+                <!-- DAILY GOALS -->
+                <div class="dashboard-card">
+
+                    <div class="card-header">
+                        <div>
+                            <h2>🎯 Daily Goals</h2>
+                            <p>Keep your streak alive</p>
+                        </div>
+                    </div>
+
+                    <div class="goal">
+                        <div class="goal-top">
+                            <span>Study for 2 hours</span>
+                            <strong>75%</strong>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width:75%"></div>
+                        </div>
+                    </div>
+
+                    <div class="goal">
+                        <div class="goal-top">
+                            <span>Complete 3 topics</span>
+                            <strong>66%</strong>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width:66%"></div>
+                        </div>
+                    </div>
+
+                    <div class="streak">
+                        🔥 <strong>5 Day Streak!</strong>
+                        <span>Keep going!</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUICK ACTIONS -->
+            <div class="dashboard-card quick-actions">
+
+                <div class="card-header">
+                    <div>
+                        <h2>⚡ Quick Actions</h2>
+                        <p>Start learning instantly</p>
+                    </div>
+                </div>
+
+                <div class="action-grid">
+
+                    <button onclick="showPage('chat')">
+                        <span>🤖</span>
+                        <strong>Ask Master Sahab</strong>
+                        <small>Clear your doubts</small>
+                    </button>
+
+                    <button>
+                        <span>📝</span>
+                        <strong>Generate Notes</strong>
+                        <small>AI-powered notes</small>
+                    </button>
+
+                    <button>
+                        <span>🧠</span>
+                        <strong>Take a Quiz</strong>
+                        <small>Test your knowledge</small>
+                    </button>
+
+                    <button>
+                        <span>📅</span>
+                        <strong>Study Planner</strong>
+                        <small>Plan your schedule</small>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CHAT PAGE -->
+        <section id="chat-page" class="page">
+
+            <div class="chat-wrapper">
+
+                <header class="chat-header">
+                    <div>
+                        <h1>🤖 Master Sahab</h1>
+                        <p><span class="online-dot"></span> AI Tutor Online</p>
+                    </div>
+
+                    <button class="clear-btn" onclick="clearChat()">
+                        🗑 Clear
+                    </button>
+                </header>
+
+
+                <div id="chat-box" class="chat-box"></div>
+
+
+                <div class="input-area">
+
+                    <div class="plus-menu-container">
+
+                        <button id="plus-btn" class="plus-btn"
+                            onclick="togglePlusMenu()">+</button>
+
+                        <div id="plus-menu" class="plus-menu">
+
+                            <button class="menu-option"
+                                onclick="startVoiceInput(); closePlusMenu();">
+                                <span class="menu-icon">🎤</span>
+                                <span>Voice</span>
+                            </button>
+
+                            <button class="menu-option"
+                                onclick="document.getElementById('photo-input').click(); closePlusMenu();">
+                                <span class="menu-icon">📷</span>
+                                <span>Photo</span>
+                            </button>
+
+                            <button class="menu-option"
+                                onclick="document.getElementById('document-input').click(); closePlusMenu();">
+                                <span class="menu-icon">📄</span>
+                                <span>Document</span>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <input type="file"
+                        id="photo-input"
+                        accept="image/*"
+                        hidden>
+
+                    <input type="file"
+                        id="document-input"
+                        accept=".pdf,.doc,.docx,.txt"
+                        hidden>
+
+
+                    <input
+                        type="text"
+                        id="message"
+                        placeholder="Ask Master Sahab anything..."
+                        autocomplete="off">
+
+                    <button id="send-btn" onclick="sendMessage()">
+                        ➤
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SUBJECTS PAGE -->
+        <section id="subjects-page" class="page">
+
+            <div class="simple-page-header">
+                <h1>📚 My Subjects</h1>
+                <p>Manage your subjects and topics.</p>
+            </div>
+
+            <div class="subject-grid">
+
+                <div class="subject-card">
+                    <span>☕</span>
+                    <h2>Java</h2>
+                    <p>12 Topics</p>
+                </div>
+
+                <div class="subject-card">
+                    <span>🐍</span>
+                    <h2>Python</h2>
+                    <p>15 Topics</p>
+                </div>
+
+                <div class="subject-card">
+                    <span>💻</span>
+                    <h2>Computer Networks</h2>
+                    <p>10 Topics</p>
+                </div>
+
+                <div class="subject-card">
+                    <span>🗄️</span>
+                    <h2>DBMS</h2>
+                    <p>14 Topics</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- GOALS PAGE -->
+        <section id="goals-page" class="page">
+
+            <div class="simple-page-header">
+                <h1>🎯 Daily Goals</h1>
+                <p>Track what you want to accomplish today.</p>
+            </div>
+
+            <div class="dashboard-card">
+
+                <div class="large-goal">
+                    <span>📖</span>
+                    <div>
+                        <h2>Study for 2 hours</h2>
+                        <p>1 hour 30 minutes completed</p>
+                    </div>
+                    <strong>75%</strong>
+                </div>
+
+                <div class="progress-bar large">
+                    <div class="progress-fill" style="width:75%"></div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROGRESS PAGE -->
+        <section id="progress-page" class="page">
+
+            <div class="simple-page-header">
+                <h1>📊 My Progress</h1>
+                <p>See how your learning is going.</p>
+            </div>
+
+            <div class="progress-cards">
+
+                <div class="progress-stat">
+                    <span>📚</span>
+                    <h2>51</h2>
+                    <p>Topics Completed</p>
+                </div>
+
+                <div class="progress-stat">
+                    <span>⏱️</span>
+                    <h2>28h</h2>
+                    <p>Total Study Time</p>
+                </div>
+
+                <div class="progress-stat">
+                    <span>🔥</span>
+                    <h2>5</h2>
+                    <p>Current Streak</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
