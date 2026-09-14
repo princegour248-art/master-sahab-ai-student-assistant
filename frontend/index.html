@@ -1,189 +1,523 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
     <title>Master Sahab - AI Student Assistant</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
+
 <div class="app">
 
-    <!-- SIDEBAR -->
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
     <aside class="sidebar">
 
         <div class="logo">
+
             🤖
-            <span>Master Sahab</span>
+
+            <span>
+                Master Sahab
+            </span>
+
         </div>
 
+
         <nav>
-            <button class="nav-item active" onclick="showPage('dashboard', this)">
-                🏠 <span>Dashboard</span>
+
+            <button
+                class="nav-item active"
+                onclick="showPage('dashboard', this)">
+
+                🏠
+                <span>
+                    Dashboard
+                </span>
+
             </button>
 
-            <button class="nav-item" onclick="showPage('chat', this)">
-                💬 <span>AI Chat</span>
+
+            <button
+                class="nav-item"
+                onclick="showPage('chat', this)">
+
+                💬
+                <span>
+                    AI Chat
+                </span>
+
             </button>
 
-            <button class="nav-item" onclick="showPage('subjects', this)">
-                📚 <span>Subjects</span>
+
+            <button
+                class="nav-item"
+                onclick="showPage('subjects', this)">
+
+                📚
+                <span>
+                    Subjects
+                </span>
+
             </button>
 
-            <button class="nav-item" onclick="showPage('goals', this)">
-                🎯 <span>Daily Goals</span>
+
+            <button
+                class="nav-item"
+                onclick="showPage('goals', this)">
+
+                🎯
+                <span>
+                    Daily Goals
+                </span>
+
             </button>
 
-            <button class="nav-item" onclick="showPage('progress', this)">
-                📊 <span>Progress</span>
+
+            <button
+                class="nav-item"
+                onclick="showPage('progress', this)">
+
+                📊
+                <span>
+                    Progress
+                </span>
+
             </button>
+
         </nav>
 
+
         <div class="sidebar-bottom">
-            <div class="online-small">
-                <span></span> AI Online
+
+            <div class="theme-switcher">
+                <span class="theme-label">Theme</span>
+                <div class="theme-options">
+                    <button type="button" class="theme-opt active" onclick="setAppTheme('royal')" title="Imperial Royal (Indigo & Gold)">👑</button>
+                    <button type="button" class="theme-opt" onclick="setAppTheme('emerald')" title="Emerald Scholar (Ivy & Gold)">🌲</button>
+                    <button type="button" class="theme-opt" onclick="setAppTheme('obsidian')" title="Obsidian Luxe (Midnight Dark)">🌌</button>
+                </div>
             </div>
+
+            <div class="online-small">
+
+                <span></span>
+
+                AI Online
+
+            </div>
+
         </div>
 
     </aside>
 
 
-    <!-- MAIN CONTENT -->
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
     <main class="main-content">
 
-        <!-- DASHBOARD -->
-        <section id="dashboard-page" class="page active-page">
 
-            <header class="dashboard-header">
-                <div>
-                    <h1>Welcome back, Student 👋</h1>
-                    <p>Let's make today a productive study day.</p>
+
+        <!-- =================================================
+             DASHBOARD
+        ================================================== -->
+
+        <section
+            id="dashboard-page"
+            class="page active-page">
+
+
+            <!-- Welcome Header -->
+
+            <div class="dashboard-welcome">
+
+                <div class="welcome-content">
+
+                    <span class="welcome-badge">
+                        🤖 Master Sahab
+                    </span>
+
+                    <h1>
+                        Welcome back, Student! 👋
+                    </h1>
+
+                    <p>
+                        Learn something new today and keep moving forward.
+                    </p>
+
                 </div>
 
-                <div class="date-box">
-                    📅 <span id="today-date"></span>
-                </div>
-            </header>
 
+                <div class="welcome-date">
 
-            <!-- STAT CARDS -->
-            <div class="stats-grid">
+                    <span id="dashboard-day">
+                        Today
+                    </span>
 
-                <div class="stat-card">
-                    <div class="stat-icon">📚</div>
-                    <div>
-                        <h3>4</h3>
-                        <p>Subjects</p>
-                    </div>
-                </div>
+                    <strong id="dashboard-date"></strong>
 
-                <div class="stat-card">
-                    <div class="stat-icon">🎯</div>
-                    <div>
-                        <h3>2</h3>
-                        <p>Goals Today</p>
-                    </div>
-                </div>
-
-                <div class="stat-card">
-                    <div class="stat-icon">⏱️</div>
-                    <div>
-                        <h3>1h 45m</h3>
-                        <p>Study Target</p>
-                    </div>
-                </div>
-
-                <div class="stat-card">
-                    <div class="stat-icon">📈</div>
-                    <div>
-                        <h3>72%</h3>
-                        <p>Progress</p>
-                    </div>
                 </div>
 
             </div>
 
 
-            <!-- DASHBOARD GRID -->
-            <div class="dashboard-grid">
 
-                <!-- TODAY PLAN -->
-                <div class="dashboard-card study-plan">
+            <!-- =================================================
+                 STAT CARDS
+            ================================================== -->
 
-                    <div class="card-header">
+            <div class="dashboard-stats">
+
+
+                <div class="stat-card stat-blue">
+
+                    <div class="stat-icon">
+                        📚
+                    </div>
+
+                    <div class="stat-info">
+
+                        <span>
+                            Subjects
+                        </span>
+
+                        <strong id="dashboard-subject-count">
+                            0
+                        </strong>
+
+                        <small>
+                            Learning subjects
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card stat-green">
+
+                    <div class="stat-icon">
+                        🎯
+                    </div>
+
+                    <div class="stat-info">
+
+                        <span>
+                            Goals Completed
+                        </span>
+
+                        <strong id="dashboard-goal-count">
+                            0
+                        </strong>
+
+                        <small>
+                            Today's progress
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card stat-orange">
+
+                    <div class="stat-icon">
+                        🔥
+                    </div>
+
+                    <div class="stat-info">
+
+                        <span>
+                            Study Streak
+                        </span>
+
+                        <strong id="dashboard-streak">
+                            1
+                        </strong>
+
+                        <small>
+                            Days in a row
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card stat-purple">
+
+                    <div class="stat-icon">
+                        💬
+                    </div>
+
+                    <div class="stat-info">
+
+                        <span>
+                            AI Chats
+                        </span>
+
+                        <strong id="dashboard-chat-count">
+                            0
+                        </strong>
+
+                        <small>
+                            Questions asked
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 MAIN DASHBOARD GRID
+            ================================================== -->
+
+            <div class="dashboard-main-grid">
+
+
+                <!-- DAILY GOAL -->
+
+                <div class="dashboard-card today-goal-card">
+
+                    <div class="card-heading">
+
                         <div>
-                            <h2>📖 Today's Study Plan</h2>
-                            <p>Your planned study sessions</p>
+
+                            <span class="card-label">
+                                TODAY'S FOCUS
+                            </span>
+
+                            <h2>
+                                🎯 Daily Goal
+                            </h2>
+
                         </div>
+
+
+                        <span
+                            class="goal-percentage"
+                            id="goal-percentage">
+
+                            0%
+
+                        </span>
+
                     </div>
 
-                    <div class="study-item">
-                        <div class="subject-icon">☕</div>
-                        <div class="study-info">
-                            <h3>Java</h3>
-                            <p>OOP & Inheritance</p>
+
+                    <div class="goal-progress-wrapper">
+
+                        <div class="goal-progress">
+
+                            <div
+                                id="dashboard-goal-progress"
+                                class="goal-progress-fill">
+                            </div>
+
                         </div>
-                        <div class="study-time">45 min</div>
+
+
+                        <span id="goal-progress-text">
+                            0 of 0 completed
+                        </span>
+
                     </div>
 
-                    <div class="study-item">
-                        <div class="subject-icon">🐍</div>
-                        <div class="study-info">
-                            <h3>Python</h3>
-                            <p>Functions & Modules</p>
-                        </div>
-                        <div class="study-time">30 min</div>
-                    </div>
 
-                    <div class="study-item">
-                        <div class="subject-icon">💻</div>
-                        <div class="study-info">
-                            <h3>Computer Networks</h3>
-                            <p>OSI Model</p>
+                    <div
+                        id="dashboard-goal-list"
+                        class="dashboard-goal-list">
+
+
+                        <div class="dashboard-empty">
+
+                            <span>
+                                🎯
+                            </span>
+
+                            <p>
+                                No goals added yet.
+                            </p>
+
+                            <button
+                                onclick="showPage('goals')">
+
+                                Add Today's Goal
+
+                            </button>
+
                         </div>
-                        <div class="study-time">30 min</div>
+
                     </div>
 
                 </div>
 
 
-                <!-- DAILY GOALS -->
-                <div class="dashboard-card">
 
-                    <div class="card-header">
+                <!-- QUICK ACTIONS -->
+
+                <div class="dashboard-card quick-actions-card">
+
+                    <div class="card-heading">
+
                         <div>
-                            <h2>🎯 Daily Goals</h2>
-                            <p>Keep your streak alive</p>
+
+                            <span class="card-label">
+                                SHORTCUTS
+                            </span>
+
+                            <h2>
+                                ⚡ Quick Actions
+                            </h2>
+
                         </div>
+
                     </div>
 
-                    <div class="goal">
-                        <div class="goal-top">
-                            <span>Study for 2 hours</span>
-                            <strong>75%</strong>
-                        </div>
 
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width:75%"></div>
-                        </div>
-                    </div>
+                    <div class="quick-action-grid">
 
-                    <div class="goal">
-                        <div class="goal-top">
-                            <span>Complete 3 topics</span>
-                            <strong>66%</strong>
-                        </div>
 
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width:66%"></div>
-                        </div>
-                    </div>
+                        <button
+                            class="quick-action"
+                            onclick="showPage('chat')">
 
-                    <div class="streak">
-                        🔥 <strong>5 Day Streak!</strong>
-                        <span>Keep going!</span>
+                            <span class="quick-action-icon">
+                                🤖
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Ask Master Sahab
+                                </strong>
+
+                                <small>
+                                    Clear your doubts
+                                </small>
+
+                            </div>
+
+                            <span class="action-arrow">
+                                →
+                            </span>
+
+                        </button>
+
+
+
+                        <button
+                            class="quick-action"
+                            onclick="showPage('subjects')">
+
+                            <span class="quick-action-icon">
+                                📚
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    My Subjects
+                                </strong>
+
+                                <small>
+                                    Continue learning
+                                </small>
+
+                            </div>
+
+                            <span class="action-arrow">
+                                →
+                            </span>
+
+                        </button>
+
+
+
+                        <button
+                            class="quick-action"
+                            onclick="showPage('goals')">
+
+                            <span class="quick-action-icon">
+                                🎯
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Daily Goals
+                                </strong>
+
+                                <small>
+                                    Plan your day
+                                </small>
+
+                            </div>
+
+                            <span class="action-arrow">
+                                →
+                            </span>
+
+                        </button>
+
+
+
+                        <button
+                            class="quick-action"
+                            onclick="showPage('progress')">
+
+                            <span class="quick-action-icon">
+                                📊
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    View Progress
+                                </strong>
+
+                                <small>
+                                    Track performance
+                                </small>
+
+                            </div>
+
+                            <span class="action-arrow">
+                                →
+                            </span>
+
+                        </button>
+
+
                     </div>
 
                 </div>
@@ -191,234 +525,818 @@
             </div>
 
 
-            <!-- QUICK ACTIONS -->
-            <div class="dashboard-card quick-actions">
 
-                <div class="card-header">
-                    <div>
-                        <h2>⚡ Quick Actions</h2>
-                        <p>Start learning instantly</p>
+            <!-- =================================================
+                 LOWER DASHBOARD
+            ================================================== -->
+
+            <div class="dashboard-bottom-grid">
+
+
+                <!-- SUBJECTS -->
+
+                <div class="dashboard-card subjects-overview-card">
+
+                    <div class="card-heading">
+
+                        <div>
+
+                            <span class="card-label">
+                                YOUR LEARNING
+                            </span>
+
+                            <h2>
+                                📚 Subjects
+                            </h2>
+
+                        </div>
+
+
+                        <button
+                            class="view-all-btn"
+                            onclick="showPage('subjects')">
+
+                            View All →
+
+                        </button>
+
                     </div>
-                </div>
 
-                <div class="action-grid">
 
-                    <button onclick="showPage('chat')">
-                        <span>🤖</span>
-                        <strong>Ask Master Sahab</strong>
-                        <small>Clear your doubts</small>
-                    </button>
+                    <div
+                        id="dashboard-subjects"
+                        class="dashboard-subjects">
 
-                    <button>
-                        <span>📝</span>
-                        <strong>Generate Notes</strong>
-                        <small>AI-powered notes</small>
-                    </button>
+                        <div class="dashboard-empty">
 
-                    <button>
-                        <span>🧠</span>
-                        <strong>Take a Quiz</strong>
-                        <small>Test your knowledge</small>
-                    </button>
+                            <span>
+                                📚
+                            </span>
 
-                    <button>
-                        <span>📅</span>
-                        <strong>Study Planner</strong>
-                        <small>Plan your schedule</small>
-                    </button>
+                            <p>
+                                No subjects added yet.
+                            </p>
+
+                        </div>
+
+                    </div>
 
                 </div>
+
+
+
+                <!-- MOTIVATION -->
+
+                <div class="dashboard-card motivation-card">
+
+                    <div class="motivation-icon">
+                        💡
+                    </div>
+
+                    <span class="card-label">
+                        DAILY MOTIVATION
+                    </span>
+
+                    <h2 id="dashboard-motivation">
+                        Keep learning, keep growing! 🚀
+                    </h2>
+
+                    <p>
+                        Every small step you take today
+                        brings you closer to your goals.
+                    </p>
+
+                    <button
+                        class="motivation-btn"
+                        onclick="changeMotivation()">
+
+                        ✨ New Motivation
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- RECENT ACTIVITY -->
+
+                <div class="dashboard-card activity-card">
+
+                    <div class="card-heading">
+
+                        <div>
+
+                            <span class="card-label">
+                                ACTIVITY
+                            </span>
+
+                            <h2>
+                                🕒 Recent Activity
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="dashboard-activity"
+                        class="dashboard-activity">
+
+                        <div class="activity-empty">
+                            No recent activity yet.
+                        </div>
+
+                    </div>
+
+                </div>
+
 
             </div>
+
+
+
+            <!-- =================================================
+                 AI BANNER
+            ================================================== -->
+
+            <div class="dashboard-ai-banner">
+
+                <div class="ai-banner-icon">
+                    🤖
+                </div>
+
+
+                <div class="ai-banner-text">
+
+                    <span>
+                        Your personal AI tutor
+                    </span>
+
+                    <h2>
+                        Need help with your studies?
+                    </h2>
+
+                    <p>
+                        Ask Master Sahab anything about
+                        your subjects, programming or projects.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="ai-banner-btn"
+                    onclick="showPage('chat')">
+
+                    Start Learning
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
 
         </section>
 
 
-        <!-- CHAT PAGE -->
-        <section id="chat-page" class="page">
 
-            <div class="chat-wrapper">
+        <!-- =====================================================
+             AI CHAT PAGE
+        ====================================================== -->
 
-                <header class="chat-header">
-                    <div>
-                        <h1>🤖 Master Sahab</h1>
-                        <p><span class="online-dot"></span> AI Tutor Online</p>
+        <section
+            id="chat-page"
+            class="page">
+
+
+            <!-- IMPORTANT:
+                 HISTORY + CHAT ARE INSIDE CHAT-LAYOUT
+            -->
+
+            <div class="chat-layout">
+
+
+                <!-- =============================================
+                     LEFT SIDE - CHAT HISTORY
+                ============================================== -->
+
+                <aside class="chat-history">
+
+
+                    <div class="history-header">
+
+                        <h2>
+                            💬 Chats
+                        </h2>
+
+
+                        <button
+                            class="new-chat-btn"
+                            onclick="startNewChat()">
+
+                            + New Chat
+
+                        </button>
+
                     </div>
 
-                    <button class="clear-btn" onclick="clearChat()">
-                        🗑 Clear
-                    </button>
-                </header>
 
 
-                <div id="chat-box" class="chat-box"></div>
+                    <!-- SEARCH -->
+
+                    <div class="history-search">
+
+                        <input
+                            type="text"
+                            id="history-search"
+                            placeholder="🔍 Search chats..."
+                            oninput="searchHistory()">
+
+                    </div>
 
 
-                <div class="input-area">
 
-                    <div class="plus-menu-container">
+                    <!-- HISTORY LIST -->
 
-                        <button id="plus-btn" class="plus-btn"
-                            onclick="togglePlusMenu()">+</button>
+                    <div
+                        id="history-list"
+                        class="history-list">
+                    </div>
 
-                        <div id="plus-menu" class="plus-menu">
 
-                            <button class="menu-option"
-                                onclick="startVoiceInput(); closePlusMenu();">
-                                <span class="menu-icon">🎤</span>
-                                <span>Voice</span>
+                </aside>
+
+
+
+                <!-- =============================================
+                     RIGHT SIDE - CHAT AREA
+                ============================================== -->
+
+                <div class="chat-wrapper">
+
+
+                    <!-- CHAT HEADER -->
+
+                    <header class="chat-header">
+
+
+                        <div>
+
+                            <h1>
+                                🤖 Master Sahab
+                            </h1>
+
+
+                            <p>
+
+                                <span class="online-dot"></span>
+
+                                AI Tutor Online
+
+                            </p>
+
+                        </div>
+
+
+
+                        <div class="chat-header-actions">
+
+
+                            <button
+                                class="clear-btn"
+                                onclick="startNewChat()">
+
+                                ➕ New Chat
+
                             </button>
 
-                            <button class="menu-option"
-                                onclick="document.getElementById('photo-input').click(); closePlusMenu();">
-                                <span class="menu-icon">📷</span>
-                                <span>Photo</span>
-                            </button>
-
-                            <button class="menu-option"
-                                onclick="document.getElementById('document-input').click(); closePlusMenu();">
-                                <span class="menu-icon">📄</span>
-                                <span>Document</span>
-                            </button>
 
                         </div>
+
+
+                    </header>
+
+
+
+                    <!-- CHAT MESSAGES -->
+
+                    <div
+                        id="chat-box"
+                        class="chat-box">
+                    </div>
+
+
+
+                    <!-- =========================================
+                         INPUT AREA
+                    ========================================== -->
+
+                    <div class="input-area">
+
+
+                        <!-- PLUS MENU -->
+
+                        <div class="plus-menu-container">
+
+
+                            <button
+                                id="plus-btn"
+                                class="plus-btn"
+                                onclick="togglePlusMenu()">
+
+                                +
+
+                            </button>
+
+
+
+                            <div
+                                id="plus-menu"
+                                class="plus-menu">
+
+
+                                <!-- VOICE -->
+
+                                <button
+                                    class="menu-option"
+                                    onclick="startVoiceInput(); closePlusMenu();">
+
+                                    <span class="menu-icon">
+                                        🎤
+                                    </span>
+
+                                    <span>
+                                        Voice
+                                    </span>
+
+                                </button>
+
+
+
+                                <!-- PHOTO -->
+
+                                <button
+                                    class="menu-option"
+                                    onclick="document.getElementById('photo-input').click(); closePlusMenu();">
+
+                                    <span class="menu-icon">
+                                        📷
+                                    </span>
+
+                                    <span>
+                                        Photo
+                                    </span>
+
+                                </button>
+
+
+
+                                <!-- DOCUMENT -->
+
+                                <button
+                                    class="menu-option"
+                                    onclick="document.getElementById('document-input').click(); closePlusMenu();">
+
+                                    <span class="menu-icon">
+                                        📄
+                                    </span>
+
+                                    <span>
+                                        Document
+                                    </span>
+
+                                </button>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- HIDDEN PHOTO INPUT -->
+
+                        <input
+                            type="file"
+                            id="photo-input"
+                            accept="image/*"
+                            hidden>
+
+
+
+                        <!-- HIDDEN DOCUMENT INPUT -->
+
+                        <input
+                            type="file"
+                            id="document-input"
+                            accept=".pdf,.doc,.docx,.txt"
+                            hidden>
+
+
+
+                        <!-- MESSAGE INPUT -->
+
+                        <input
+                            type="text"
+                            id="message"
+                            placeholder="Ask Master Sahab anything..."
+                            autocomplete="off">
+
+
+
+                        <!-- SEND BUTTON -->
+
+                        <button
+                            id="send-btn"
+                            onclick="sendMessage()">
+
+                            ➤
+
+                        </button>
+
 
                     </div>
 
 
-                    <input type="file"
-                        id="photo-input"
-                        accept="image/*"
-                        hidden>
-
-                    <input type="file"
-                        id="document-input"
-                        accept=".pdf,.doc,.docx,.txt"
-                        hidden>
+                </div>
 
 
-                    <input
-                        type="text"
-                        id="message"
-                        placeholder="Ask Master Sahab anything..."
-                        autocomplete="off">
+            </div>
 
-                    <button id="send-btn" onclick="sendMessage()">
-                        ➤
+
+        </section>
+
+
+
+        <!-- =====================================================
+             SUBJECTS PAGE
+        ====================================================== -->
+
+        <!-- =====================================================
+     MASTER SAHAB - SUBJECTS PAGE
+===================================================== -->
+
+<section id="subjects-page" class="page">
+
+    <div class="subjects-header">
+
+        <div>
+            <span class="subjects-badge">📚 STUDY LIBRARY</span>
+
+            <h1>My Subjects</h1>
+
+            <p>
+                Manage your subjects, syllabus and topics in one place.
+            </p>
+        </div>
+
+        <button class="add-subject-main-btn" onclick="openSubjectModal()">
+            <span>＋</span>
+            Add Subject
+        </button>
+
+    </div>
+
+
+    <!-- SUBJECT SEARCH -->
+
+    <div class="subjects-toolbar">
+
+        <div class="subject-search-box">
+
+            <span>🔍</span>
+
+            <input
+                type="text"
+                id="subject-search"
+                placeholder="Search subjects..."
+                oninput="searchSubjects()"
+            >
+
+        </div>
+
+        <div class="subject-count-box">
+            <strong id="subject-total-count">0</strong>
+            <span>Subjects</span>
+        </div>
+
+    </div>
+
+
+    <!-- SUBJECT GRID -->
+
+    <div id="subjects-container" class="enhanced-subject-grid"></div>
+
+
+    <!-- EMPTY STATE -->
+
+    <div id="subjects-empty" class="subjects-empty" style="display:none;">
+
+        <div class="subjects-empty-icon">
+            📚
+        </div>
+
+        <h2>No Subjects Yet</h2>
+
+        <p>
+            Add your first subject and start organizing your syllabus.
+        </p>
+
+        <button onclick="openSubjectModal()">
+            ＋ Add Your First Subject
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SUBJECT MODAL
+===================================================== -->
+
+<div id="subject-modal" class="subject-modal">
+
+    <div class="subject-modal-box">
+
+        <div class="subject-modal-header">
+
+            <div>
+                <span id="subject-modal-badge">📚 NEW SUBJECT</span>
+
+                <h2 id="subject-modal-title">
+                    Add Subject
+                </h2>
+            </div>
+
+            <button
+                class="subject-modal-close"
+                onclick="closeSubjectModal()"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="subject-form">
+
+            <!-- SUBJECT NAME -->
+
+            <div class="form-group">
+
+                <label>Subject Name</label>
+
+                <input
+                    type="text"
+                    id="subject-name-input"
+                    placeholder="Example: Java"
+                >
+
+            </div>
+
+
+            <!-- ICON -->
+
+            <div class="form-group">
+
+                <label>Subject Icon</label>
+
+                <div class="emoji-selector">
+
+                    <button type="button" onclick="selectSubjectIcon('☕')">☕</button>
+                    <button type="button" onclick="selectSubjectIcon('🐍')">🐍</button>
+                    <button type="button" onclick="selectSubjectIcon('💻')">💻</button>
+                    <button type="button" onclick="selectSubjectIcon('🗄️')">🗄️</button>
+                    <button type="button" onclick="selectSubjectIcon('📊')">📊</button>
+                    <button type="button" onclick="selectSubjectIcon('🤖')">🤖</button>
+                    <button type="button" onclick="selectSubjectIcon('🌐')">🌐</button>
+                    <button type="button" onclick="selectSubjectIcon('📚')">📚</button>
+                    <button type="button" onclick="selectSubjectIcon('⚙️')">⚙️</button>
+                    <button type="button" onclick="selectSubjectIcon('🧮')">🧮</button>
+
+                </div>
+
+                <input
+                    type="hidden"
+                    id="subject-icon-input"
+                    value="📚"
+                >
+
+            </div>
+
+
+            <!-- DESCRIPTION -->
+
+            <div class="form-group">
+
+                <label>Description</label>
+
+                <textarea
+                    id="subject-description-input"
+                    rows="3"
+                    placeholder="Write a short description..."
+                ></textarea>
+
+            </div>
+
+
+            <!-- SYLLABUS -->
+
+            <div class="form-group">
+
+                <div class="form-label-row">
+
+                    <label>📖 Syllabus</label>
+
+                    <button
+                        type="button"
+                        class="small-add-btn"
+                        onclick="addSyllabusInput()"
+                    >
+                        ＋ Add Unit
                     </button>
 
                 </div>
 
-            </div>
-
-        </section>
-
-
-        <!-- SUBJECTS PAGE -->
-        <section id="subjects-page" class="page">
-
-            <div class="simple-page-header">
-                <h1>📚 My Subjects</h1>
-                <p>Manage your subjects and topics.</p>
-            </div>
-
-            <div class="subject-grid">
-
-                <div class="subject-card">
-                    <span>☕</span>
-                    <h2>Java</h2>
-                    <p>12 Topics</p>
-                </div>
-
-                <div class="subject-card">
-                    <span>🐍</span>
-                    <h2>Python</h2>
-                    <p>15 Topics</p>
-                </div>
-
-                <div class="subject-card">
-                    <span>💻</span>
-                    <h2>Computer Networks</h2>
-                    <p>10 Topics</p>
-                </div>
-
-                <div class="subject-card">
-                    <span>🗄️</span>
-                    <h2>DBMS</h2>
-                    <p>14 Topics</p>
-                </div>
+                <div
+                    id="syllabus-input-list"
+                    class="dynamic-input-list"
+                ></div>
 
             </div>
 
-        </section>
 
+            <!-- TOPICS -->
 
-        <!-- GOALS PAGE -->
-        <section id="goals-page" class="page">
+            <div class="form-group">
 
-            <div class="simple-page-header">
-                <h1>🎯 Daily Goals</h1>
-                <p>Track what you want to accomplish today.</p>
-            </div>
+                <div class="form-label-row">
 
-            <div class="dashboard-card">
+                    <label>📝 Topics</label>
 
-                <div class="large-goal">
-                    <span>📖</span>
-                    <div>
-                        <h2>Study for 2 hours</h2>
-                        <p>1 hour 30 minutes completed</p>
-                    </div>
-                    <strong>75%</strong>
+                    <button
+                        type="button"
+                        class="small-add-btn"
+                        onclick="addTopicInput()"
+                    >
+                        ＋ Add Topic
+                    </button>
+
                 </div>
 
-                <div class="progress-bar large">
-                    <div class="progress-fill" style="width:75%"></div>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- PROGRESS PAGE -->
-        <section id="progress-page" class="page">
-
-            <div class="simple-page-header">
-                <h1>📊 My Progress</h1>
-                <p>See how your learning is going.</p>
-            </div>
-
-            <div class="progress-cards">
-
-                <div class="progress-stat">
-                    <span>📚</span>
-                    <h2>51</h2>
-                    <p>Topics Completed</p>
-                </div>
-
-                <div class="progress-stat">
-                    <span>⏱️</span>
-                    <h2>28h</h2>
-                    <p>Total Study Time</p>
-                </div>
-
-                <div class="progress-stat">
-                    <span>🔥</span>
-                    <h2>5</h2>
-                    <p>Current Streak</p>
-                </div>
+                <div
+                    id="topic-input-list"
+                    class="dynamic-input-list"
+                ></div>
 
             </div>
 
-        </section>
+        </div>
 
-    </main>
+
+        <div class="subject-modal-footer">
+
+            <button
+                class="cancel-subject-btn"
+                onclick="closeSubjectModal()"
+            >
+                Cancel
+            </button>
+
+            <button
+                class="save-subject-btn"
+                onclick="saveSubject()"
+            >
+                💾 Save Subject
+            </button>
+
+        </div>
+
+    </div>
 
 </div>
 
 
+<!-- =====================================================
+     SUBJECT DETAILS MODAL
+===================================================== -->
+
+<div id="subject-details-modal" class="subject-modal">
+
+    <div class="subject-details-box">
+
+        <button
+            class="subject-modal-close"
+            onclick="closeSubjectDetails()"
+        >
+            ×
+        </button>
+
+        <div id="subject-details-content"></div>
+
+    </div>
+
+</div>
+
+        <!-- =====================================================
+             PROGRESS PAGE
+        ====================================================== -->
+
+        <section
+            id="progress-page"
+            class="page">
+
+
+            <div class="simple-page-header">
+
+                <h1>
+                    📊 My Progress
+                </h1>
+
+                <p>
+                    See how your learning is going.
+                </p>
+
+            </div>
+
+
+            <div class="progress-cards">
+
+
+                <div class="progress-stat">
+
+                    <span>
+                        📚
+                    </span>
+
+                    <h2>
+                        51
+                    </h2>
+
+                    <p>
+                        Topics Completed
+                    </p>
+
+                </div>
+
+
+
+                <div class="progress-stat">
+
+                    <span>
+                        ⏱️
+                    </span>
+
+                    <h2>
+                        28h
+                    </h2>
+
+                    <p>
+                        Total Study Time
+                    </p>
+
+                </div>
+
+
+
+                <div class="progress-stat">
+
+                    <span>
+                        🔥
+                    </span>
+
+                    <h2>
+                        5
+                    </h2>
+
+                    <p>
+                        Current Streak
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+
 <script src="script.js"></script>
 
+
 </body>
+
 </html>
