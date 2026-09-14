@@ -1,1 +1,5 @@
-notepad .gitignore
+notepad .gitignorevenv/
+__pycache__/
+*.pyc
+*.bak
+.env
