@@ -1,4 +1,4 @@
-notepad .gitignorevenv/
+venv/
 __pycache__/
 *.pyc
 *.bak

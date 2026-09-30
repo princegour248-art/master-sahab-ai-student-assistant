@@ -1,0 +1,144 @@
+<!-- =====================================================
+     ALPHA - HOMEWORK & ASSIGNMENTS COMPONENT
+     File: frontend/sections/assignments.html
+     ===================================================== -->
+
+<section id="assignments-page" class="page">
+
+    <!-- Page Header -->
+    <div class="page-header assignments-header-flex">
+        <div>
+            <span class="page-label">
+                STUDY &amp; TASK WORKSPACE
+            </span>
+            <h1>
+                Workspace
+            </h1>
+            <p>
+                Track upcoming tasks, manage assignment deadlines, and monitor your submission progress.
+            </p>
+        </div>
+
+        <div class="assignments-header-meta">
+            <button
+                type="button"
+                class="assignments-header-add-btn"
+                onclick="openAssignmentModal()"
+            >
+                <span>+</span> Add Assignment
+            </button>
+        </div>
+    </div>
+
+    <!-- 4 Top KPI Stat Cards -->
+    <div class="assignments-stats-grid">
+        <div class="assignment-stat-card">
+            <div class="assign-stat-inner">
+                <div class="assign-stat-icon-box bg-blue-subtle">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="m9 14 2 2 4-4"/></svg>
+                </div>
+                <div class="assign-stat-text">
+                    <span class="stat-kpi-label">TOTAL ASSIGNMENTS</span>
+                    <strong id="assignment-stat-total" class="stat-kpi-number">0</strong>
+                    <p class="stat-kpi-desc">Across all enrolled subjects</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="assignment-stat-card">
+            <div class="assign-stat-inner">
+                <div class="assign-stat-icon-box bg-amber-subtle">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div class="assign-stat-text">
+                    <span class="stat-kpi-label">IN PROGRESS / PENDING</span>
+                    <strong id="assignment-stat-pending" class="stat-kpi-number">0</strong>
+                    <p class="stat-kpi-desc">Active homework tasks</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="assignment-stat-card">
+            <div class="assign-stat-inner">
+                <div class="assign-stat-icon-box bg-emerald-subtle">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+                <div class="assign-stat-text">
+                    <span class="stat-kpi-label">COMPLETED / SUBMITTED</span>
+                    <strong id="assignment-stat-completed" class="stat-kpi-number">0</strong>
+                    <p class="stat-kpi-desc">Finished tasks &amp; labs</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="assignment-stat-card">
+            <div class="assign-stat-inner">
+                <div class="assign-stat-icon-box bg-rose-subtle">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10.29 3.86-8.47 14.14A2 2 0 0 0 3.56 21h16.88a2 2 0 0 0 1.74-2.97L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                </div>
+                <div class="assign-stat-text">
+                    <span class="stat-kpi-label">DUE SOON / URGENT</span>
+                    <strong id="assignment-stat-duesoon" class="stat-kpi-number">0</strong>
+                    <p class="stat-kpi-desc">Deadlines within 3 days</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Assignments Feed & Filter Card -->
+    <div class="assignments-feed-card">
+        <div class="feed-header-bar">
+            <div class="feed-filters">
+                <button
+                    type="button"
+                    class="feed-filter-btn active"
+                    id="assign-filter-all"
+                    onclick="setAssignmentFilter('all')"
+                >
+                    All <span class="filter-count" id="assign-filter-count-all">0</span>
+                </button>
+                <button
+                    type="button"
+                    class="feed-filter-btn"
+                    id="assign-filter-pending"
+                    onclick="setAssignmentFilter('pending')"
+                >
+                    In Progress <span class="filter-count" id="assign-filter-count-pending">0</span>
+                </button>
+                <button
+                    type="button"
+                    class="feed-filter-btn"
+                    id="assign-filter-completed"
+                    onclick="setAssignmentFilter('completed')"
+                >
+                    Completed <span class="filter-count" id="assign-filter-count-done">0</span>
+                </button>
+                <button
+                    type="button"
+                    class="feed-filter-btn"
+                    id="assign-filter-soon"
+                    onclick="setAssignmentFilter('soon')"
+                >
+                    Due Soon <span class="filter-count" id="assign-filter-count-soon">0</span>
+                </button>
+            </div>
+
+            <div class="feed-actions">
+                <button
+                    type="button"
+                    class="assignments-header-add-btn small"
+                    onclick="openAssignmentModal()"
+                >
+                    <span>+</span> New Assignment
+                </button>
+            </div>
+        </div>
+
+        <!-- Assignments Grid Container (Populated by js/assignments.js) -->
+        <div
+            id="assignments-grid-container"
+            class="assignments-cards-grid"
+        ></div>
+    </div>
+
+</section>

@@ -1,0 +1,396 @@
+<!-- =====================================================
+     GLOBAL MODALS & POPUPS COMPONENT
+     Source: frontend/sections/modals.html
+     ===================================================== -->
+
+<!-- 1. SUBJECT ADD / EDIT MODAL -->
+<div
+    id="subject-modal"
+    class="modal"
+>
+    <div class="modal-content subject-modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+            <div>
+                <span
+                    id="subject-modal-badge"
+                    class="modal-badge"
+                >
+                    NEW SUBJECT
+                </span>
+                <h2 id="subject-modal-title">
+                    Add Subject
+                </h2>
+            </div>
+            <button
+                class="modal-close"
+                onclick="closeSubjectModal()"
+                title="Close"
+            >
+                ×
+            </button>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+
+            <!-- Subject Name -->
+            <div class="form-group">
+                <label for="subject-name-input">
+                    Subject Name
+                </label>
+                <input
+                    id="subject-name-input"
+                    type="text"
+                    placeholder="e.g. Java Programming"
+                >
+            </div>
+
+            <!-- Subject Icon -->
+            <div class="form-group">
+                <label>
+                    Subject Icon
+                </label>
+                <input
+                    id="subject-icon-input"
+                    type="hidden"
+                    value="📚"
+                >
+                <div class="icon-picker">
+                    <button
+                        type="button"
+                        class="icon-picker-btn"
+                        data-icon="📚"
+                        onclick="selectSubjectIcon('📚', this)"
+                        title="General &amp; Core Studies"
+                    >
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg>
+                    </button>
+                    <button
+                        type="button"
+                        class="icon-picker-btn"
+                        data-icon="💻"
+                        onclick="selectSubjectIcon('💻', this)"
+                        title="Computer Science &amp; Systems"
+                    >
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </button>
+                    <button
+                        type="button"
+                        class="icon-picker-btn"
+                        data-icon="🐍"
+                        onclick="selectSubjectIcon('🐍', this)"
+                        title="Python &amp; Programming"
+                    >
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+                    </button>
+                    <button
+                        type="button"
+                        class="icon-picker-btn"
+                        data-icon="☕"
+                        onclick="selectSubjectIcon('☕', this)"
+                        title="Java &amp; Backend"
+                    >
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                    </button>
+                    <button
+                        type="button"
+                        class="icon-picker-btn"
+                        data-icon="🌐"
+                        onclick="selectSubjectIcon('🌐', this)"
+                        title="Web Development &amp; Internet"
+                    >
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    </button>
+                    <button
+                        type="button"
+                        class="icon-picker-btn"
+                        data-icon="🗄️"
+                        onclick="selectSubjectIcon('🗄️', this)"
+                        title="Database &amp; SQL"
+                    >
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                    </button>
+                    <button
+                        type="button"
+                        class="icon-picker-btn"
+                        data-icon="📊"
+                        onclick="selectSubjectIcon('📊', this)"
+                        title="Analytics &amp; Statistics"
+                    >
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    </button>
+                    <button
+                        type="button"
+                        class="icon-picker-btn"
+                        data-icon="🧠"
+                        onclick="selectSubjectIcon('🧠', this)"
+                        title="Artificial Intelligence &amp; ML"
+                    >
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                    </button>
+                    <button
+                        type="button"
+                        class="icon-picker-btn"
+                        data-icon="📐"
+                        onclick="selectSubjectIcon('📐', this)"
+                        title="Mathematics &amp; Geometry"
+                    >
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 22 1-1h18l1 1"/><path d="M21 21 8.5 8.5"/><path d="m3 3 7 7"/><circle cx="12" cy="5" r="2"/></svg>
+                    </button>
+                    <button
+                        type="button"
+                        class="icon-picker-btn"
+                        data-icon="🔬"
+                        onclick="selectSubjectIcon('🔬', this)"
+                        title="Physics &amp; Science"
+                    >
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2v7.31L4.14 20.3A1 1 0 0 0 5 21.75h14a1 1 0 0 0 .86-1.45L14 9.31V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Description -->
+            <div class="form-group">
+                <label for="subject-description-input">
+                    Description
+                </label>
+                <textarea
+                    id="subject-description-input"
+                    rows="3"
+                    placeholder="Short description of this subject..."
+                ></textarea>
+            </div>
+
+            <!-- Syllabus -->
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label>
+                        Syllabus
+                    </label>
+                    <button
+                        type="button"
+                        class="small-add-btn"
+                        onclick="addSyllabusInput()"
+                    >
+                        + Add
+                    </button>
+                </div>
+                <div
+                    id="syllabus-input-list"
+                    class="dynamic-input-list"
+                ></div>
+            </div>
+
+            <!-- Topics -->
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label>
+                        Topics
+                    </label>
+                    <button
+                        type="button"
+                        class="small-add-btn"
+                        onclick="addTopicInput()"
+                    >
+                        + Add
+                    </button>
+                </div>
+                <div
+                    id="topic-input-list"
+                    class="dynamic-input-list"
+                ></div>
+            </div>
+
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+            <button
+                class="secondary-btn"
+                onclick="closeSubjectModal()"
+            >
+                Cancel
+            </button>
+            <button
+                class="primary-btn"
+                onclick="saveSubject()"
+            >
+                Save Subject
+            </button>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- 2. SUBJECT DETAILS MODAL (POPUP BOX) -->
+<div
+    id="subject-details-modal"
+    class="modal subject-details-modal-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="subject-details-modal-title"
+>
+    <div
+        class="modal-content subject-details-modal-content"
+        onclick="event.stopPropagation()"
+    >
+        <div id="subject-details-dynamic-wrapper">
+            <!-- Dynamically populated with professional subject details -->
+        </div>
+    </div>
+</div>
+
+
+<!-- 3. ASSIGNMENT ADD / EDIT MODAL -->
+<div
+    id="assignment-modal"
+    class="modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="assignment-modal-title"
+>
+    <div
+        class="modal-content assignment-modal-content"
+        onclick="event.stopPropagation()"
+    >
+        <div class="modal-header">
+            <div>
+                <span id="assignment-modal-badge" class="modal-badge">
+                    TASK &amp; DEADLINE
+                </span>
+                <h2 id="assignment-modal-title">
+                    Add Assignment
+                </h2>
+            </div>
+            <button
+                type="button"
+                class="modal-close"
+                onclick="closeAssignmentModal()"
+                title="Close"
+            >
+                ×
+            </button>
+        </div>
+
+        <form id="assignment-modal-form" onsubmit="handleSaveAssignment(event)">
+            <input type="hidden" id="assignment-edit-id" value="">
+
+            <div class="modal-body">
+                <!-- Title -->
+                <div class="form-group">
+                    <label for="assignment-title-input">Assignment / Homework Title *</label>
+                    <input
+                        id="assignment-title-input"
+                        type="text"
+                        placeholder="e.g. Java Multithreading Lab &amp; Thread Pools"
+                        required
+                        autocomplete="off"
+                    >
+                </div>
+
+                <div class="form-row-2">
+                    <!-- Subject Select -->
+                    <div class="form-group">
+                        <label for="assignment-subject-select">Subject / Course *</label>
+                        <select id="assignment-subject-select" class="form-select" required>
+                            <!-- Populated dynamically with enrolled subjects -->
+                        </select>
+                    </div>
+
+                    <!-- Type Select -->
+                    <div class="form-group">
+                        <label for="assignment-type-select">Task Type</label>
+                        <select id="assignment-type-select" class="form-select">
+                            <option value="Homework">Homework</option>
+                            <option value="Lab Report">Lab Report</option>
+                            <option value="Project">Project</option>
+                            <option value="Problem Set">Problem Set</option>
+                            <option value="Reading / Essay">Reading / Essay</option>
+                            <option value="Quiz Prep">Quiz Prep</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row-2">
+                    <!-- Due Date -->
+                    <div class="form-group">
+                        <label for="assignment-due-date-input">Due Date *</label>
+                        <input
+                            id="assignment-due-date-input"
+                            type="date"
+                            required
+                        >
+                    </div>
+
+                    <!-- Priority -->
+                    <div class="form-group">
+                        <label for="assignment-priority-select">Priority Level</label>
+                        <select id="assignment-priority-select" class="form-select">
+                            <option value="normal">Normal</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High Priority</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Progress Slider -->
+                <div class="form-group">
+                    <div class="slider-label-row">
+                        <label for="assignment-progress-slider">Current Progress</label>
+                        <span id="assignment-progress-val-display" class="slider-value-pill">0%</span>
+                    </div>
+                    <input
+                        type="range"
+                        id="assignment-progress-slider"
+                        min="0"
+                        max="100"
+                        value="0"
+                        step="5"
+                        oninput="document.getElementById('assignment-progress-val-display').textContent = this.value + '%'"
+                    >
+                </div>
+
+                <!-- Notes / Description -->
+                <div class="form-group">
+                    <label for="assignment-notes-input">Instructions / Teacher Notes</label>
+                    <textarea
+                        id="assignment-notes-input"
+                        rows="3"
+                        placeholder="Add teacher instructions, submission requirements, or helpful links..."
+                    ></textarea>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn-cancel" onclick="closeAssignmentModal()">Cancel</button>
+                <button type="submit" class="btn-save" id="assignment-submit-btn">Save Assignment</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<!-- 4. DYNAMIC & CHAT FILE INPUTS -->
+<input
+    type="file"
+    id="subject-dynamic-file-input"
+    hidden
+>
+
+<input
+    type="file"
+    id="photo-input"
+    accept="image/*"
+    capture="environment"
+    hidden
+>
+
+<input
+    type="file"
+    id="document-input"
+    accept=".pdf,.doc,.docx,.txt"
+    hidden
+>

@@ -1,0 +1,362 @@
+/* =========================================================
+   9. MOTIVATION CARD
+   ========================================================= */
+
+.motivation-card {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 17px 20px;
+
+    margin-bottom: 24px;
+
+    background: var(--primary);
+    color: #FFFFFF;
+
+    border-radius: 14px;
+
+    box-shadow: var(--shadow-md);
+}
+
+.motivation-icon {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background: rgba(255, 255, 255, 0.14);
+
+    border-radius: 10px;
+
+    font-size: 18px;
+}
+
+.motivation-card span {
+    display: block;
+
+    color: rgba(255, 255, 255, 0.72);
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+}
+
+.motivation-card p {
+    margin-top: 2px;
+
+    color: #FFFFFF;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   10. DASHBOARD STATS
+   ========================================================= */
+
+.dashboard-stats {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 15px;
+
+    margin-bottom: 24px;
+}
+
+.stat-card {
+    min-height: 104px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+    padding: 18px;
+
+    background: #FFFFFF;
+
+    border: 1px solid var(--border);
+
+    border-radius: 13px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow: var(--shadow-sm);
+
+    border-color: #BFDBFE;
+}
+
+.stat-icon {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--surface-soft);
+
+    color: var(--primary);
+
+    border-radius: 10px;
+
+    font-size: 17px;
+}
+
+.stat-card span {
+    display: block;
+
+    color: var(--text-light);
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.stat-card strong {
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--text-primary);
+
+    font-size: 22px;
+
+    line-height: 1;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   11. DASHBOARD GRID
+   ========================================================= */
+
+.dashboard-grid {
+    display: grid;
+
+    grid-template-columns: 1.15fr 0.85fr;
+
+    gap: 20px;
+
+    margin-bottom: 20px;
+}
+
+.dashboard-panel {
+    background: #FFFFFF;
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    padding: 21px;
+
+    box-shadow: var(--shadow-sm);
+}
+
+.panel-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+.panel-label {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: var(--primary);
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: 1.1px;
+}
+
+.panel-header h2 {
+    color: var(--text-primary);
+
+    font-size: 17px;
+
+    font-weight: 750;
+}
+
+
+/* =========================================================
+   12. DASHBOARD SUBJECTS
+   ========================================================= */
+
+.dashboard-subject-progress {
+    height: 5px;
+
+    overflow: hidden;
+
+    background: #E5E7EB;
+
+    border-radius: 10px;
+}
+
+.dashboard-subject-progress::before {
+    content: "";
+
+    display: block;
+
+    width: var(--subject-progress, 0%);
+    height: 100%;
+
+    background: var(--primary);
+
+    border-radius: inherit;
+}
+
+
+/* =========================================================
+   13. GOALS
+   ========================================================= */
+
+.goal-progress {
+    width: 100%;
+    height: 7px;
+
+    margin-bottom: 18px;
+
+    overflow: hidden;
+
+    background: #E5E7EB;
+
+    border-radius: 20px;
+}
+
+.goal-progress-bar {
+    width: 0;
+    height: 100%;
+
+    background: var(--primary);
+
+    border-radius: inherit;
+
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    color: var(--primary);
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.dashboard-goal-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+.goal-item {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 10px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    background: #FFFFFF;
+}
+
+.goal-item input {
+    width: 17px;
+    height: 17px;
+
+    accent-color: var(--primary);
+
+    cursor: pointer;
+}
+
+.goal-item label {
+    color: var(--text-primary);
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.goal-item.completed label {
+    color: var(--text-light);
+
+    text-decoration: line-through;
+}
+
+
+/* =========================================================
+   14. ACTIVITY
+   ========================================================= */
+
+.activity-panel {
+    margin-bottom: 20px;
+}
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 12px 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.activity-item:last-child {
+    border-bottom: 0;
+}
+
+.activity-icon {
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--surface-soft);
+
+    color: var(--primary);
+
+    border-radius: 9px;
+
+    font-size: 14px;
+}
+
+.activity-text {
+    color: var(--text-secondary);
+
+    font-size: 12px;
+}
+

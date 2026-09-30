@@ -1,1341 +1,1901 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="royal">
 
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
+    <title>Alpha - AI Student Assistant</title>
 
-    <title>Master Sahab - AI Student Assistant</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="style.css">
-
+    <!-- =====================================================
+         MODULAR STYLESHEETS (Organized by Feature/Section)
+         ===================================================== -->
+    <link rel="stylesheet" href="css/main.css?v=3.5">
+    <link rel="stylesheet" href="css/layout.css?v=3.5">
+    <link rel="stylesheet" href="css/dashboard.css?v=3.5">
+    <link rel="stylesheet" href="css/chat.css?v=3.5">
+    <link rel="stylesheet" href="css/subjects.css?v=3.5">
+    <link rel="stylesheet" href="css/assignments.css?v=3.5">
+    <link rel="stylesheet" href="css/goals.css?v=3.5">
+    <link rel="stylesheet" href="css/progress.css?v=3.5">
+    <link rel="stylesheet" href="css/modals.css?v=3.5">
+    <!-- Backward compatibility fallback -->
+    <link rel="stylesheet" href="style.css?v=3.5">
 </head>
 
 
 <body>
 
-
-<div class="app">
-
-
     <!-- =====================================================
-         SIDEBAR
-    ====================================================== -->
+         APP CONTAINER
+         ===================================================== -->
+    <div class="app-container">
 
-    <aside class="sidebar">
-
-        <div class="logo">
-
-            🤖
-
-            <span>
-                Master Sahab
-            </span>
-
-        </div>
-
-
-        <nav>
-
-            <button
-                class="nav-item active"
-                onclick="showPage('dashboard', this)">
-
-                🏠
-                <span>
-                    Dashboard
-                </span>
-
-            </button>
-
-
-            <button
-                class="nav-item"
-                onclick="showPage('chat', this)">
-
-                💬
-                <span>
-                    AI Chat
-                </span>
-
-            </button>
-
-
-            <button
-                class="nav-item"
-                onclick="showPage('subjects', this)">
-
-                📚
-                <span>
-                    Subjects
-                </span>
-
-            </button>
-
-
-            <button
-                class="nav-item"
-                onclick="showPage('goals', this)">
-
-                🎯
-                <span>
-                    Daily Goals
-                </span>
-
-            </button>
-
-
-            <button
-                class="nav-item"
-                onclick="showPage('progress', this)">
-
-                📊
-                <span>
-                    Progress
-                </span>
-
-            </button>
-
-        </nav>
-
-
-        <div class="sidebar-bottom">
-
-            <div class="theme-switcher">
-                <span class="theme-label">Theme</span>
-                <div class="theme-options">
-                    <button type="button" class="theme-opt active" onclick="setAppTheme('royal')" title="Imperial Royal (Indigo & Gold)">👑</button>
-                    <button type="button" class="theme-opt" onclick="setAppTheme('emerald')" title="Emerald Scholar (Ivy & Gold)">🌲</button>
-                    <button type="button" class="theme-opt" onclick="setAppTheme('obsidian')" title="Obsidian Luxe (Midnight Dark)">🌌</button>
+        <!-- =================================================
+             1. SIDEBAR (Source: frontend/sections/sidebar.html)
+             ================================================= -->
+        <!-- =====================================================
+             ALPHA - SIDEBAR COMPONENT
+             File: frontend/sections/sidebar.html
+             ===================================================== -->
+        
+        <aside class="sidebar">
+        
+            <!-- Logo -->
+            <div class="sidebar-logo">
+                <div class="logo-icon">
+                    α
+                </div>
+                <div class="logo-text">
+                    <h2>Alpha</h2>
+                    <span>AI Student Assistant</span>
                 </div>
             </div>
-
-            <div class="online-small">
-
-                <span></span>
-
-                AI Online
-
+        
+            <!-- Navigation -->
+            <nav class="sidebar-nav">
+                <button
+                    class="nav-item active"
+                    onclick="showPage('dashboard', this)"
+                    data-title="Dashboard"
+                >
+                    <span class="nav-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+                    </span>
+                    <span class="nav-label">Dashboard</span>
+                </button>
+        
+                <button
+                    class="nav-item"
+                    onclick="showPage('chat', this)"
+                    data-title="AI Chat"
+                >
+                    <span class="nav-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                    </span>
+                    <span class="nav-label">AI Chat</span>
+                </button>
+        
+                <button
+                    class="nav-item"
+                    onclick="showPage('subjects', this)"
+                    data-title="Subjects"
+                >
+                    <span class="nav-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg>
+                    </span>
+                    <span class="nav-label">Subjects</span>
+                </button>
+        
+                <button
+                    class="nav-item"
+                    onclick="showPage('assignments', this)"
+                    data-title="Workspace"
+                >
+                    <span class="nav-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="m9 14 2 2 4-4"/></svg>
+                    </span>
+                    <span class="nav-label">Workspace</span>
+                </button>
+        
+                <button
+                    class="nav-item"
+                    onclick="showPage('goals', this)"
+                    data-title="Daily Goals"
+                >
+                    <span class="nav-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                    </span>
+                    <span class="nav-label">Daily Goals</span>
+                </button>
+        
+                <button
+                    class="nav-item"
+                    onclick="showPage('progress', this)"
+                    data-title="Progress"
+                >
+                    <span class="nav-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    </span>
+                    <span class="nav-label">Progress</span>
+                </button>
+            </nav>
+        
+            <!-- Sidebar Bottom -->
+            <div class="sidebar-bottom">
+                <div class="sidebar-ai-card">
+                    <div class="sidebar-ai-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z"/></svg>
+                    </div>
+                    <div class="sidebar-ai-details">
+                        <strong>Alpha AI</strong>
+                        <p>Your personal study assistant</p>
+                    </div>
+                </div>
             </div>
-
-        </div>
-
-    </aside>
-
-
-
-    <!-- =====================================================
-         MAIN CONTENT
-    ====================================================== -->
-
-    <main class="main-content">
-
+        
+        </aside>
 
 
         <!-- =================================================
-             DASHBOARD
-        ================================================== -->
-
-        <section
-            id="dashboard-page"
-            class="page active-page">
-
-
-            <!-- Welcome Header -->
-
-            <div class="dashboard-welcome">
-
-                <div class="welcome-content">
-
-                    <span class="welcome-badge">
-                        🤖 Master Sahab
-                    </span>
-
-                    <h1>
-                        Welcome back, Student! 👋
-                    </h1>
-
-                    <p>
-                        Learn something new today and keep moving forward.
-                    </p>
-
-                </div>
-
-
-                <div class="welcome-date">
-
-                    <span id="dashboard-day">
-                        Today
-                    </span>
-
-                    <strong id="dashboard-date"></strong>
-
-                </div>
-
-            </div>
-
-
+             MAIN CONTENT WRAPPER
+             ================================================= -->
+        <main class="main-content">
 
             <!-- =================================================
-                 STAT CARDS
-            ================================================== -->
-
-            <div class="dashboard-stats">
-
-
-                <div class="stat-card stat-blue">
-
-                    <div class="stat-icon">
-                        📚
-                    </div>
-
-                    <div class="stat-info">
-
-                        <span>
-                            Subjects
+                 2. DASHBOARD (Source: frontend/sections/dashboard.html)
+                 ================================================= -->
+            <!-- =====================================================
+                 ALPHA - DASHBOARD COMPONENT
+                 File: frontend/sections/dashboard.html
+                 ===================================================== -->
+            
+            <section id="dashboard-page" class="page active">
+            
+                <div class="page-header dashboard-header">
+                    <div>
+                        <span class="page-label">
+                            STUDENT DASHBOARD
                         </span>
-
-                        <strong id="dashboard-subject-count">
-                            0
-                        </strong>
-
-                        <small>
-                            Learning subjects
-                        </small>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="stat-card stat-green">
-
-                    <div class="stat-icon">
-                        🎯
-                    </div>
-
-                    <div class="stat-info">
-
-                        <span>
-                            Goals Completed
-                        </span>
-
-                        <strong id="dashboard-goal-count">
-                            0
-                        </strong>
-
-                        <small>
-                            Today's progress
-                        </small>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="stat-card stat-orange">
-
-                    <div class="stat-icon">
-                        🔥
-                    </div>
-
-                    <div class="stat-info">
-
-                        <span>
-                            Study Streak
-                        </span>
-
-                        <strong id="dashboard-streak">
-                            1
-                        </strong>
-
-                        <small>
-                            Days in a row
-                        </small>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="stat-card stat-purple">
-
-                    <div class="stat-icon">
-                        💬
-                    </div>
-
-                    <div class="stat-info">
-
-                        <span>
-                            AI Chats
-                        </span>
-
-                        <strong id="dashboard-chat-count">
-                            0
-                        </strong>
-
-                        <small>
-                            Questions asked
-                        </small>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- =================================================
-                 MAIN DASHBOARD GRID
-            ================================================== -->
-
-            <div class="dashboard-main-grid">
-
-
-                <!-- DAILY GOAL -->
-
-                <div class="dashboard-card today-goal-card">
-
-                    <div class="card-heading">
-
-                        <div>
-
-                            <span class="card-label">
-                                TODAY'S FOCUS
+                        <h1>
+                            Welcome back, Student
+                            <span class="welcome-wave-icon" title="Welcome">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"/><path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
                             </span>
-
-                            <h2>
-                                🎯 Daily Goal
-                            </h2>
-
-                        </div>
-
-
-                        <span
-                            class="goal-percentage"
-                            id="goal-percentage">
-
-                            0%
-
-                        </span>
-
+                        </h1>
+                        <p>
+                            Learn smarter with Alpha.
+                        </p>
                     </div>
-
-
-                    <div class="goal-progress-wrapper">
-
+            
+                    <div class="dashboard-date-box">
+                        <span id="dashboard-day">
+                            Today
+                        </span>
+                        <strong id="dashboard-date">
+                            --
+                        </strong>
+                    </div>
+                </div>
+            
+                <!-- Motivation -->
+                <div class="motivation-card">
+                    <div class="motivation-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z"/></svg>
+                    </div>
+                    <div>
+                        <span>
+                            DAILY MOTIVATION
+                        </span>
+                        <p id="dashboard-motivation">
+                            Keep learning, keep growing.
+                        </p>
+                    </div>
+                </div>
+            
+                <!-- Statistics -->
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon bg-blue-subtle">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        </div>
+                        <div>
+                            <span>
+                                AI Chats
+                            </span>
+                            <strong id="dashboard-chat-count">
+                                0
+                            </strong>
+                        </div>
+                    </div>
+            
+                    <div class="stat-card">
+                        <div class="stat-icon bg-violet-subtle">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg>
+                        </div>
+                        <div>
+                            <span>
+                                Subjects
+                            </span>
+                            <strong id="dashboard-subject-count">
+                                0
+                            </strong>
+                        </div>
+                    </div>
+            
+                    <div class="stat-card">
+                        <div class="stat-icon bg-emerald-subtle">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                        </div>
+                        <div>
+                            <span>
+                                Goals
+                            </span>
+                            <strong id="dashboard-goal-count">
+                                0
+                            </strong>
+                        </div>
+                    </div>
+            
+                    <div class="stat-card">
+                        <div class="stat-icon bg-amber-subtle">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"/></svg>
+                        </div>
+                        <div>
+                            <span>
+                                Study Progress
+                            </span>
+                            <strong id="goal-percentage">
+                                0%
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Dashboard Grid -->
+                <div class="dashboard-grid">
+                    <!-- Subjects -->
+                    <div class="dashboard-panel">
+                        <div class="panel-header">
+                            <div>
+                                <span class="panel-label">
+                                    YOUR LEARNING
+                                </span>
+                                <h2>
+                                    My Subjects
+                                </h2>
+                            </div>
+                            <button
+                                class="text-button"
+                                onclick="showPage('subjects')"
+                            >
+                                View All →
+                            </button>
+                        </div>
+                        <div
+                            id="dashboard-subjects"
+                            class="dashboard-subjects"
+                        ></div>
+                    </div>
+            
+                    <!-- Goals -->
+                    <div class="dashboard-panel">
+                        <div class="panel-header">
+                            <div>
+                                <span class="panel-label">
+                                    TODAY
+                                </span>
+                                <h2>
+                                    Daily Goals
+                                </h2>
+                            </div>
+                            <span
+                                id="goal-progress-text"
+                                class="progress-text"
+                            >
+                                0%
+                            </span>
+                        </div>
                         <div class="goal-progress">
-
                             <div
                                 id="dashboard-goal-progress"
-                                class="goal-progress-fill">
-                            </div>
-
+                                class="goal-progress-bar"
+                            ></div>
                         </div>
-
-
-                        <span id="goal-progress-text">
-                            0 of 0 completed
-                        </span>
-
+                        <div
+                            id="dashboard-goal-list"
+                            class="dashboard-goal-list"
+                        ></div>
                     </div>
-
-
-                    <div
-                        id="dashboard-goal-list"
-                        class="dashboard-goal-list">
-
-
-                        <div class="dashboard-empty">
-
-                            <span>
-                                🎯
-                            </span>
-
-                            <p>
-                                No goals added yet.
-                            </p>
-
-                            <button
-                                onclick="showPage('goals')">
-
-                                Add Today's Goal
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
                 </div>
-
-
-
-                <!-- QUICK ACTIONS -->
-
-                <div class="dashboard-card quick-actions-card">
-
-                    <div class="card-heading">
-
+            
+                <!-- Recent Activity -->
+                <div class="dashboard-panel activity-panel">
+                    <div class="panel-header">
                         <div>
-
-                            <span class="card-label">
-                                SHORTCUTS
+                            <span class="panel-label">
+                                RECENT
                             </span>
-
                             <h2>
-                                ⚡ Quick Actions
+                                Recent Activity
                             </h2>
-
                         </div>
-
                     </div>
-
-
-                    <div class="quick-action-grid">
-
-
-                        <button
-                            class="quick-action"
-                            onclick="showPage('chat')">
-
-                            <span class="quick-action-icon">
-                                🤖
-                            </span>
-
-                            <div>
-
-                                <strong>
-                                    Ask Master Sahab
-                                </strong>
-
-                                <small>
-                                    Clear your doubts
-                                </small>
-
-                            </div>
-
-                            <span class="action-arrow">
-                                →
-                            </span>
-
-                        </button>
-
-
-
-                        <button
-                            class="quick-action"
-                            onclick="showPage('subjects')">
-
-                            <span class="quick-action-icon">
-                                📚
-                            </span>
-
-                            <div>
-
-                                <strong>
-                                    My Subjects
-                                </strong>
-
-                                <small>
-                                    Continue learning
-                                </small>
-
-                            </div>
-
-                            <span class="action-arrow">
-                                →
-                            </span>
-
-                        </button>
-
-
-
-                        <button
-                            class="quick-action"
-                            onclick="showPage('goals')">
-
-                            <span class="quick-action-icon">
-                                🎯
-                            </span>
-
-                            <div>
-
-                                <strong>
-                                    Daily Goals
-                                </strong>
-
-                                <small>
-                                    Plan your day
-                                </small>
-
-                            </div>
-
-                            <span class="action-arrow">
-                                →
-                            </span>
-
-                        </button>
-
-
-
-                        <button
-                            class="quick-action"
-                            onclick="showPage('progress')">
-
-                            <span class="quick-action-icon">
-                                📊
-                            </span>
-
-                            <div>
-
-                                <strong>
-                                    View Progress
-                                </strong>
-
-                                <small>
-                                    Track performance
-                                </small>
-
-                            </div>
-
-                            <span class="action-arrow">
-                                →
-                            </span>
-
-                        </button>
-
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- =================================================
-                 LOWER DASHBOARD
-            ================================================== -->
-
-            <div class="dashboard-bottom-grid">
-
-
-                <!-- SUBJECTS -->
-
-                <div class="dashboard-card subjects-overview-card">
-
-                    <div class="card-heading">
-
-                        <div>
-
-                            <span class="card-label">
-                                YOUR LEARNING
-                            </span>
-
-                            <h2>
-                                📚 Subjects
-                            </h2>
-
-                        </div>
-
-
-                        <button
-                            class="view-all-btn"
-                            onclick="showPage('subjects')">
-
-                            View All →
-
-                        </button>
-
-                    </div>
-
-
-                    <div
-                        id="dashboard-subjects"
-                        class="dashboard-subjects">
-
-                        <div class="dashboard-empty">
-
-                            <span>
-                                📚
-                            </span>
-
-                            <p>
-                                No subjects added yet.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- MOTIVATION -->
-
-                <div class="dashboard-card motivation-card">
-
-                    <div class="motivation-icon">
-                        💡
-                    </div>
-
-                    <span class="card-label">
-                        DAILY MOTIVATION
-                    </span>
-
-                    <h2 id="dashboard-motivation">
-                        Keep learning, keep growing! 🚀
-                    </h2>
-
-                    <p>
-                        Every small step you take today
-                        brings you closer to your goals.
-                    </p>
-
-                    <button
-                        class="motivation-btn"
-                        onclick="changeMotivation()">
-
-                        ✨ New Motivation
-
-                    </button>
-
-                </div>
-
-
-
-                <!-- RECENT ACTIVITY -->
-
-                <div class="dashboard-card activity-card">
-
-                    <div class="card-heading">
-
-                        <div>
-
-                            <span class="card-label">
-                                ACTIVITY
-                            </span>
-
-                            <h2>
-                                🕒 Recent Activity
-                            </h2>
-
-                        </div>
-
-                    </div>
-
-
                     <div
                         id="dashboard-activity"
-                        class="dashboard-activity">
-
-                        <div class="activity-empty">
-                            No recent activity yet.
-                        </div>
-
-                    </div>
-
+                        class="activity-list"
+                    ></div>
                 </div>
-
-
-            </div>
-
+            
+            </section>
 
 
             <!-- =================================================
-                 AI BANNER
-            ================================================== -->
-
-            <div class="dashboard-ai-banner">
-
-                <div class="ai-banner-icon">
-                    🤖
-                </div>
-
-
-                <div class="ai-banner-text">
-
-                    <span>
-                        Your personal AI tutor
-                    </span>
-
-                    <h2>
-                        Need help with your studies?
-                    </h2>
-
-                    <p>
-                        Ask Master Sahab anything about
-                        your subjects, programming or projects.
-                    </p>
-
-                </div>
-
-
-                <button
-                    class="ai-banner-btn"
-                    onclick="showPage('chat')">
-
-                    Start Learning
-
-                    <span>
-                        →
-                    </span>
-
-                </button>
-
-            </div>
-
-
-        </section>
-
-
-
-        <!-- =====================================================
-             AI CHAT PAGE
-        ====================================================== -->
-
-        <section
-            id="chat-page"
-            class="page">
-
-
-            <!-- IMPORTANT:
-                 HISTORY + CHAT ARE INSIDE CHAT-LAYOUT
-            -->
-
-            <div class="chat-layout">
-
-
-                <!-- =============================================
-                     LEFT SIDE - CHAT HISTORY
-                ============================================== -->
-
-                <aside class="chat-history">
-
-
-                    <div class="history-header">
-
-                        <h2>
-                            💬 Chats
-                        </h2>
-
-
-                        <button
-                            class="new-chat-btn"
-                            onclick="startNewChat()">
-
-                            + New Chat
-
-                        </button>
-
-                    </div>
-
-
-
-                    <!-- SEARCH -->
-
-                    <div class="history-search">
-
-                        <input
-                            type="text"
-                            id="history-search"
-                            placeholder="🔍 Search chats..."
-                            oninput="searchHistory()">
-
-                    </div>
-
-
-
-                    <!-- HISTORY LIST -->
-
-                    <div
-                        id="history-list"
-                        class="history-list">
-                    </div>
-
-
-                </aside>
-
-
-
-                <!-- =============================================
-                     RIGHT SIDE - CHAT AREA
-                ============================================== -->
-
-                <div class="chat-wrapper">
-
-
-                    <!-- CHAT HEADER -->
-
-                    <header class="chat-header">
-
-
-                        <div>
-
-                            <h1>
-                                🤖 Master Sahab
-                            </h1>
-
-
-                            <p>
-
-                                <span class="online-dot"></span>
-
-                                AI Tutor Online
-
-                            </p>
-
-                        </div>
-
-
-
-                        <div class="chat-header-actions">
-
-
-                            <button
-                                class="clear-btn"
-                                onclick="startNewChat()">
-
-                                ➕ New Chat
-
-                            </button>
-
-
-                        </div>
-
-
-                    </header>
-
-
-
-                    <!-- CHAT MESSAGES -->
-
-                    <div
-                        id="chat-box"
-                        class="chat-box">
-                    </div>
-
-
-
-                    <!-- =========================================
-                         INPUT AREA
-                    ========================================== -->
-
-                    <div class="input-area">
-
-
-                        <!-- PLUS MENU -->
-
-                        <div class="plus-menu-container">
-
-
-                            <button
-                                id="plus-btn"
-                                class="plus-btn"
-                                onclick="togglePlusMenu()">
-
-                                +
-
-                            </button>
-
-
-
-                            <div
-                                id="plus-menu"
-                                class="plus-menu">
-
-
-                                <!-- VOICE -->
-
-                                <button
-                                    class="menu-option"
-                                    onclick="startVoiceInput(); closePlusMenu();">
-
-                                    <span class="menu-icon">
-                                        🎤
-                                    </span>
-
-                                    <span>
-                                        Voice
-                                    </span>
-
-                                </button>
-
-
-
-                                <!-- PHOTO -->
-
-                                <button
-                                    class="menu-option"
-                                    onclick="document.getElementById('photo-input').click(); closePlusMenu();">
-
-                                    <span class="menu-icon">
-                                        📷
-                                    </span>
-
-                                    <span>
-                                        Photo
-                                    </span>
-
-                                </button>
-
-
-
-                                <!-- DOCUMENT -->
-
-                                <button
-                                    class="menu-option"
-                                    onclick="document.getElementById('document-input').click(); closePlusMenu();">
-
-                                    <span class="menu-icon">
-                                        📄
-                                    </span>
-
-                                    <span>
-                                        Document
-                                    </span>
-
-                                </button>
-
-
+                 3. AI CHAT (Source: frontend/sections/chat.html)
+                 ================================================= -->
+            <!-- =====================================================
+                 ALPHA - AI CHAT COMPONENT
+                 File: frontend/sections/chat.html
+                 ===================================================== -->
+            
+            <section id="chat-page" class="page">
+            
+                <div class="chat-layout">
+            
+                    <!-- CHAT HISTORY -->
+                    <aside class="chat-history">
+                        <div class="history-header">
+                            <div>
+                                <span class="page-label">
+                                    AI TUTOR
+                                </span>
+                                <h2>
+                                    Chat History
+                                </h2>
                             </div>
-
+                            <button
+                                class="new-chat-btn"
+                                onclick="startNewChat()"
+                                title="Start a new chat"
+                            >
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                                <span>
+                                    New Chat
+                                </span>
+                            </button>
                         </div>
-
-
-
-                        <!-- HIDDEN PHOTO INPUT -->
-
-                        <input
-                            type="file"
-                            id="photo-input"
-                            accept="image/*"
-                            hidden>
-
-
-
-                        <!-- HIDDEN DOCUMENT INPUT -->
-
-                        <input
-                            type="file"
-                            id="document-input"
-                            accept=".pdf,.doc,.docx,.txt"
-                            hidden>
-
-
-
-                        <!-- MESSAGE INPUT -->
-
-                        <input
-                            type="text"
-                            id="message"
-                            placeholder="Ask Master Sahab anything..."
-                            autocomplete="off">
-
-
-
-                        <!-- SEND BUTTON -->
-
-                        <button
-                            id="send-btn"
-                            onclick="sendMessage()">
-
-                            ➤
-
-                        </button>
-
-
+            
+                        <div class="history-search">
+                            <span>
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                            </span>
+                            <input
+                                type="text"
+                                id="history-search"
+                                placeholder="Search chats..."
+                                oninput="searchHistory()"
+                                autocomplete="off"
+                            >
+                        </div>
+            
+                        <div
+                            id="history-list"
+                            class="history-list"
+                        ></div>
+                    </aside>
+            
+                    <!-- CHAT MAIN -->
+                    <div class="chat-main">
+                        <div class="chat-header">
+                            <div class="chat-ai-info">
+                                <div class="chat-ai-avatar">
+                                    α
+                                </div>
+                                <div>
+                                    <h2>
+                                        Alpha
+                                    </h2>
+                                    <span>
+                                        <i></i>
+                                        AI Student Tutor
+                                    </span>
+                                </div>
+                            </div>
+            
+                            <button
+                                type="button"
+                                class="chat-refresh-btn"
+                                onclick="refreshChat()"
+                                title="Refresh and backup chat"
+                                aria-label="Refresh and backup chat"
+                            >
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 21h5v-5"/></svg>
+                            </button>
+                        </div>
+            
+                        <div
+                            id="chat-box"
+                            class="chat-box"
+                        >
+                            <div class="chat-welcome" id="chat-welcome">
+                                <div class="chat-welcome-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z"/></svg>
+                                </div>
+            
+                                <h1>
+                                    How can I help you today?
+                                </h1>
+            
+                                <p>
+                                    Ask Alpha anything about your syllabus, homework, or exam prep.
+                                </p>
+            
+                                <div class="chat-suggestions">
+                                    <button
+                                        type="button"
+                                        onclick="useChatSuggestion('Explain Python in simple words')"
+                                    >
+                                        <span class="suggestion-icon">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                                        </span>
+                                        <strong>
+                                            Explain Python
+                                        </strong>
+                                        <small>
+                                            in simple words
+                                        </small>
+                                    </button>
+            
+                                    <button
+                                        type="button"
+                                        onclick="useChatSuggestion('Help me prepare for my exam')"
+                                    >
+                                        <span class="suggestion-icon">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                                        </span>
+                                        <strong>
+                                            Exam Preparation
+                                        </strong>
+                                        <small>
+                                            Create a study plan
+                                        </small>
+                                    </button>
+            
+                                    <button
+                                        type="button"
+                                        onclick="useChatSuggestion('Explain this topic with an example')"
+                                    >
+                                        <span class="suggestion-icon">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z"/></svg>
+                                        </span>
+                                        <strong>
+                                            Learn a Topic
+                                        </strong>
+                                        <small>
+                                            With simple examples
+                                        </small>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <!-- CHAT COMPOSER -->
+                        <div class="chat-composer">
+                            <div class="plus-menu-container">
+                                <button
+                                    type="button"
+                                    class="plus-btn"
+                                    onclick="togglePlusMenu()"
+                                    title="More options"
+                                    aria-label="More options"
+                                >
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                                </button>
+            
+                                <div
+                                    id="plus-menu"
+                                    class="plus-menu"
+                                >
+                                    <button
+                                        type="button"
+                                        onclick="startVoiceInput(); closePlusMenu()"
+                                    >
+                                        <span>
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                                        </span>
+                                        <div>
+                                            <strong>
+                                                Voice
+                                            </strong>
+                                            <small>
+                                                Speak to Alpha
+                                            </small>
+                                        </div>
+                                    </button>
+            
+                                    <button
+                                        type="button"
+                                        onclick="openCamera(); closePlusMenu()"
+                                    >
+                                        <span>
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                                        </span>
+                                        <div>
+                                            <strong>
+                                                Photo
+                                            </strong>
+                                            <small>
+                                                Add an image
+                                            </small>
+                                        </div>
+                                    </button>
+            
+                                    <label
+                                        for="document-input"
+                                        class="plus-menu-item"
+                                        onclick="closePlusMenu()"
+                                    >
+                                        <span>
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                                        </span>
+                                        <div>
+                                            <strong>
+                                                Document
+                                            </strong>
+                                            <small>
+                                                Add a file
+                                            </small>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+            
+                            <textarea
+                                id="message"
+                                rows="1"
+                                placeholder="Ask Alpha anything..."
+                                autocomplete="off"
+                            ></textarea>
+            
+                            <button
+                                type="button"
+                                class="send-btn"
+                                onclick="sendMessage()"
+                                title="Send message"
+                                aria-label="Send message"
+                            >
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                            </button>
+                        </div>
+            
+                        <p class="chat-disclaimer">
+                            Alpha can make mistakes. Verify important information.
+                        </p>
                     </div>
-
-
+            
                 </div>
-
-
-            </div>
-
-
-        </section>
-
-
-
-        <!-- =====================================================
-             SUBJECTS PAGE
-        ====================================================== -->
-
-        <!-- =====================================================
-     MASTER SAHAB - SUBJECTS PAGE
-===================================================== -->
-
-<section id="subjects-page" class="page">
-
-    <div class="subjects-header">
-
-        <div>
-            <span class="subjects-badge">📚 STUDY LIBRARY</span>
-
-            <h1>My Subjects</h1>
-
-            <p>
-                Manage your subjects, syllabus and topics in one place.
-            </p>
-        </div>
-
-        <button class="add-subject-main-btn" onclick="openSubjectModal()">
-            <span>＋</span>
-            Add Subject
-        </button>
-
-    </div>
-
-
-    <!-- SUBJECT SEARCH -->
-
-    <div class="subjects-toolbar">
-
-        <div class="subject-search-box">
-
-            <span>🔍</span>
-
-            <input
-                type="text"
-                id="subject-search"
-                placeholder="Search subjects..."
-                oninput="searchSubjects()"
-            >
-
-        </div>
-
-        <div class="subject-count-box">
-            <strong id="subject-total-count">0</strong>
-            <span>Subjects</span>
-        </div>
-
-    </div>
-
-
-    <!-- SUBJECT GRID -->
-
-    <div id="subjects-container" class="enhanced-subject-grid"></div>
-
-
-    <!-- EMPTY STATE -->
-
-    <div id="subjects-empty" class="subjects-empty" style="display:none;">
-
-        <div class="subjects-empty-icon">
-            📚
-        </div>
-
-        <h2>No Subjects Yet</h2>
-
-        <p>
-            Add your first subject and start organizing your syllabus.
-        </p>
-
-        <button onclick="openSubjectModal()">
-            ＋ Add Your First Subject
-        </button>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     SUBJECT MODAL
-===================================================== -->
-
-<div id="subject-modal" class="subject-modal">
-
-    <div class="subject-modal-box">
-
-        <div class="subject-modal-header">
-
-            <div>
-                <span id="subject-modal-badge">📚 NEW SUBJECT</span>
-
-                <h2 id="subject-modal-title">
-                    Add Subject
-                </h2>
-            </div>
-
-            <button
-                class="subject-modal-close"
-                onclick="closeSubjectModal()"
-            >
-                ×
-            </button>
-
-        </div>
-
-
-        <div class="subject-form">
-
-            <!-- SUBJECT NAME -->
-
-            <div class="form-group">
-
-                <label>Subject Name</label>
-
-                <input
-                    type="text"
-                    id="subject-name-input"
-                    placeholder="Example: Java"
-                >
-
-            </div>
-
-
-            <!-- ICON -->
-
-            <div class="form-group">
-
-                <label>Subject Icon</label>
-
-                <div class="emoji-selector">
-
-                    <button type="button" onclick="selectSubjectIcon('☕')">☕</button>
-                    <button type="button" onclick="selectSubjectIcon('🐍')">🐍</button>
-                    <button type="button" onclick="selectSubjectIcon('💻')">💻</button>
-                    <button type="button" onclick="selectSubjectIcon('🗄️')">🗄️</button>
-                    <button type="button" onclick="selectSubjectIcon('📊')">📊</button>
-                    <button type="button" onclick="selectSubjectIcon('🤖')">🤖</button>
-                    <button type="button" onclick="selectSubjectIcon('🌐')">🌐</button>
-                    <button type="button" onclick="selectSubjectIcon('📚')">📚</button>
-                    <button type="button" onclick="selectSubjectIcon('⚙️')">⚙️</button>
-                    <button type="button" onclick="selectSubjectIcon('🧮')">🧮</button>
-
-                </div>
-
-                <input
-                    type="hidden"
-                    id="subject-icon-input"
-                    value="📚"
-                >
-
-            </div>
-
-
-            <!-- DESCRIPTION -->
-
-            <div class="form-group">
-
-                <label>Description</label>
-
-                <textarea
-                    id="subject-description-input"
-                    rows="3"
-                    placeholder="Write a short description..."
-                ></textarea>
-
-            </div>
-
-
-            <!-- SYLLABUS -->
-
-            <div class="form-group">
-
-                <div class="form-label-row">
-
-                    <label>📖 Syllabus</label>
-
+            
+            </section>
+
+
+            <!-- =================================================
+                 4. SUBJECTS (Source: frontend/sections/subjects.html)
+                 ================================================= -->
+            <!-- =====================================================
+                 ALPHA - SUBJECTS COMPONENT
+                 File: frontend/sections/subjects.html
+                 ===================================================== -->
+            
+            <section id="subjects-page" class="page">
+            
+                <!-- SUBJECT PAGE HEADER -->
+                <div class="page-header">
+                    <div>
+                        <span class="page-label">
+                            LEARNING
+                        </span>
+                        <h1>
+                            My Subjects
+                        </h1>
+                        <p>
+                            Organize your subjects, study materials and track your learning progress.
+                        </p>
+                    </div>
+            
                     <button
-                        type="button"
-                        class="small-add-btn"
-                        onclick="addSyllabusInput()"
+                        class="primary-btn"
+                        onclick="openSubjectModal()"
                     >
-                        ＋ Add Unit
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        <span>Add Subject</span>
                     </button>
-
                 </div>
-
+            
+                <!-- SUBJECT TOOLBAR -->
+                <div class="subjects-toolbar">
+                    <div class="subject-search-box">
+                        <span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                        </span>
+                        <input
+                            id="subject-search"
+                            type="text"
+                            placeholder="Search subjects..."
+                            oninput="searchSubjects()"
+                            autocomplete="off"
+                        >
+                    </div>
+            
+                    <div class="subject-count-box">
+                        <span>
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 5px; vertical-align: -2px;"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg>Total Subjects
+                        </span>
+                        <strong id="subject-total-count">
+                            0
+                        </strong>
+                    </div>
+                </div>
+            
+                <!-- SUBJECTS CONTAINER (Dynamic grid populated by js/subjects.js) -->
                 <div
-                    id="syllabus-input-list"
-                    class="dynamic-input-list"
+                    id="subjects-container"
+                    class="subjects-container"
                 ></div>
-
-            </div>
-
-
-            <!-- TOPICS -->
-
-            <div class="form-group">
-
-                <div class="form-label-row">
-
-                    <label>📝 Topics</label>
-
+            
+                <!-- EMPTY STATE -->
+                <div
+                    id="subjects-empty"
+                    class="subjects-empty"
+                >
+                    <div class="empty-icon">
+                        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg>
+                    </div>
+                    <h2>
+                        No subjects yet
+                    </h2>
+                    <p>
+                        Add your first subject to start tracking your studies.
+                    </p>
                     <button
-                        type="button"
-                        class="small-add-btn"
-                        onclick="addTopicInput()"
+                        class="primary-btn"
+                        onclick="openSubjectModal()"
                     >
-                        ＋ Add Topic
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        <span>Add Subject</span>
                     </button>
-
                 </div>
-
-                <div
-                    id="topic-input-list"
-                    class="dynamic-input-list"
-                ></div>
-
-            </div>
-
-        </div>
+            
+            </section>
 
 
-        <div class="subject-modal-footer">
+            <!-- =================================================
+                 5. ASSIGNMENTS (Source: frontend/sections/assignments.html)
+                 ================================================= -->
+            <!-- =====================================================
+                 ALPHA - HOMEWORK & ASSIGNMENTS COMPONENT
+                 File: frontend/sections/assignments.html
+                 ===================================================== -->
+            
+            <section id="assignments-page" class="page">
+            
+                <!-- Page Header -->
+                <div class="page-header assignments-header-flex">
+                    <div>
+                        <span class="page-label">
+                            STUDY &amp; TASK WORKSPACE
+                        </span>
+                        <h1>
+                            Workspace
+                        </h1>
+                        <p>
+                            Track upcoming tasks, manage assignment deadlines, and monitor your submission progress.
+                        </p>
+                    </div>
+            
+                    <div class="assignments-header-meta">
+                        <button
+                            type="button"
+                            class="assignments-header-add-btn"
+                            onclick="openAssignmentModal()"
+                        >
+                            <span>+</span> Add Assignment
+                        </button>
+                    </div>
+                </div>
+            
+                <!-- 4 Top KPI Stat Cards -->
+                <div class="assignments-stats-grid">
+                    <div class="assignment-stat-card">
+                        <div class="assign-stat-inner">
+                            <div class="assign-stat-icon-box bg-blue-subtle">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="m9 14 2 2 4-4"/></svg>
+                            </div>
+                            <div class="assign-stat-text">
+                                <span class="stat-kpi-label">TOTAL ASSIGNMENTS</span>
+                                <strong id="assignment-stat-total" class="stat-kpi-number">0</strong>
+                                <p class="stat-kpi-desc">Across all enrolled subjects</p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="assignment-stat-card">
+                        <div class="assign-stat-inner">
+                            <div class="assign-stat-icon-box bg-amber-subtle">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            </div>
+                            <div class="assign-stat-text">
+                                <span class="stat-kpi-label">IN PROGRESS / PENDING</span>
+                                <strong id="assignment-stat-pending" class="stat-kpi-number">0</strong>
+                                <p class="stat-kpi-desc">Active homework tasks</p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="assignment-stat-card">
+                        <div class="assign-stat-inner">
+                            <div class="assign-stat-icon-box bg-emerald-subtle">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            </div>
+                            <div class="assign-stat-text">
+                                <span class="stat-kpi-label">COMPLETED / SUBMITTED</span>
+                                <strong id="assignment-stat-completed" class="stat-kpi-number">0</strong>
+                                <p class="stat-kpi-desc">Finished tasks &amp; labs</p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="assignment-stat-card">
+                        <div class="assign-stat-inner">
+                            <div class="assign-stat-icon-box bg-rose-subtle">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10.29 3.86-8.47 14.14A2 2 0 0 0 3.56 21h16.88a2 2 0 0 0 1.74-2.97L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                            </div>
+                            <div class="assign-stat-text">
+                                <span class="stat-kpi-label">DUE SOON / URGENT</span>
+                                <strong id="assignment-stat-duesoon" class="stat-kpi-number">0</strong>
+                                <p class="stat-kpi-desc">Deadlines within 3 days</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Assignments Feed & Filter Card -->
+                <div class="assignments-feed-card">
+                    <div class="feed-header-bar">
+                        <div class="feed-filters">
+                            <button
+                                type="button"
+                                class="feed-filter-btn active"
+                                id="assign-filter-all"
+                                onclick="setAssignmentFilter('all')"
+                            >
+                                All <span class="filter-count" id="assign-filter-count-all">0</span>
+                            </button>
+                            <button
+                                type="button"
+                                class="feed-filter-btn"
+                                id="assign-filter-pending"
+                                onclick="setAssignmentFilter('pending')"
+                            >
+                                In Progress <span class="filter-count" id="assign-filter-count-pending">0</span>
+                            </button>
+                            <button
+                                type="button"
+                                class="feed-filter-btn"
+                                id="assign-filter-completed"
+                                onclick="setAssignmentFilter('completed')"
+                            >
+                                Completed <span class="filter-count" id="assign-filter-count-done">0</span>
+                            </button>
+                            <button
+                                type="button"
+                                class="feed-filter-btn"
+                                id="assign-filter-soon"
+                                onclick="setAssignmentFilter('soon')"
+                            >
+                                Due Soon <span class="filter-count" id="assign-filter-count-soon">0</span>
+                            </button>
+                        </div>
+            
+                        <div class="feed-actions">
+                            <button
+                                type="button"
+                                class="assignments-header-add-btn small"
+                                onclick="openAssignmentModal()"
+                            >
+                                <span>+</span> New Assignment
+                            </button>
+                        </div>
+                    </div>
+            
+                    <!-- Assignments Grid Container (Populated by js/assignments.js) -->
+                    <div
+                        id="assignments-grid-container"
+                        class="assignments-cards-grid"
+                    ></div>
+                </div>
+            
+            </section>
 
-            <button
-                class="cancel-subject-btn"
-                onclick="closeSubjectModal()"
+
+            <!-- =================================================
+                 6. DAILY GOALS (Source: frontend/sections/goals.html)
+                 ================================================= -->
+            <!-- =================================================
+                 DAILY GOALS SECTION COMPONENT
+                 Source: frontend/sections/goals.html
+                 ================================================= -->
+            
+            <section
+                id="goals-page"
+                class="page"
             >
-                Cancel
-            </button>
+            
+                <!-- Page Header -->
+                <div class="page-header goals-header-flex">
+                    <div>
+                        <span class="page-label">
+                            PRODUCTIVITY &amp; EXECUTION
+                        </span>
+                        <h1>
+                            Daily Study Goals
+                        </h1>
+                        <p>
+                            Set daily targets, conquer syllabus milestones, and build consistent study habits.
+                        </p>
+                    </div>
+            
+                    <div class="goals-header-meta">
+                        <div class="goals-date-pill">
+                            <span class="pulse-dot"></span>
+                            <span id="goals-today-date-display">Today's Focus</span>
+                        </div>
+                        <button
+                            type="button"
+                            class="goals-header-add-btn"
+                            onclick="focusGoalInput()"
+                        >
+                            <span>+</span> New Goal
+                        </button>
+                    </div>
+                </div>
+            
+            
+                <!-- Goals Top Metrics Hero -->
+                <div class="goals-stats-grid">
+            
+                    <!-- Completion Meter KPI -->
+                    <div class="goal-stat-card progress-summary-stat">
+                        <div class="stat-top-info">
+                            <div>
+                                <span class="stat-kpi-label">
+                                    TODAY'S COMPLETION
+                                </span>
+                                <div class="stat-kpi-value-wrap">
+                                    <span
+                                        id="goal-percentage-page"
+                                        class="stat-kpi-number"
+                                    >0%</span>
+                                    <span
+                                        id="goal-fraction-page"
+                                        class="stat-kpi-sub"
+                                    >0 of 0 done</span>
+                                </div>
+                            </div>
+                            <div class="stat-kpi-icon-ring" id="goal-stat-kpi-ring">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                            </div>
+                        </div>
+            
+                        <div class="goal-meter-track" role="progressbar" aria-label="Goal Completion">
+                            <div
+                                id="goals-page-progress"
+                                class="goal-meter-fill"
+                                style="width: 0%;"
+                            ></div>
+                        </div>
+            
+                        <div
+                            class="goal-meter-caption"
+                            id="goal-meter-status-text"
+                        >
+                            Add your first goal to begin your study streak today!
+                        </div>
+                    </div>
+            
+            
+                    <!-- Active / Pending Goals -->
+                    <div class="goal-stat-card">
+                        <div class="stat-card-inner">
+                            <div class="stat-icon-box bg-blue-subtle">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            </div>
+                            <div class="stat-text-box">
+                                <span class="stat-kpi-label">
+                                    ACTIVE / PENDING
+                                </span>
+                                <strong
+                                    id="goals-active-count"
+                                    class="stat-kpi-number"
+                                >0</strong>
+                                <p class="stat-kpi-desc">
+                                    Milestones waiting to be conquered
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+            
+            
+                    <!-- Completed Today -->
+                    <div class="goal-stat-card">
+                        <div class="stat-card-inner">
+                            <div class="stat-icon-box bg-emerald-subtle">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"/></svg>
+                            </div>
+                            <div class="stat-text-box">
+                                <span class="stat-kpi-label">
+                                    COMPLETED TODAY
+                                </span>
+                                <strong
+                                    id="goals-completed-count"
+                                    class="stat-kpi-number"
+                                >0</strong>
+                                <p class="stat-kpi-desc">
+                                    Tasks checked off and mastered
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+            
+                </div>
+            
+            
+                <!-- Goal Creation Form Card -->
+                <div class="goal-creation-card">
+            
+                    <div class="creation-card-header">
+                        <div class="creation-header-title">
+                            <span class="creator-badge">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                                SMART TARGET
+                            </span>
+                            <h3>Add a New Study Goal</h3>
+                        </div>
+                        <span class="creation-hint">Stay specific, actionable &amp; realistic</span>
+                    </div>
+            
+                    <form
+                        id="goal-create-form"
+                        class="goal-create-form"
+                        onsubmit="handleNewGoalSubmit(event)"
+                    >
+                        <div class="goal-input-primary-row">
+                            <div class="input-with-icon">
+                                <span class="input-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                                </span>
+                                <input
+                                    type="text"
+                                    id="new-goal-text"
+                                    placeholder="What do you want to accomplish today? (e.g. Master Exception Handling in Java)"
+                                    required
+                                    autocomplete="off"
+                                >
+                            </div>
+                            <button
+                                type="submit"
+                                class="goal-submit-btn"
+                                id="add-goal-btn"
+                            >
+                                <span>+</span> Add Daily Goal
+                            </button>
+                        </div>
+            
+                        <div class="goal-form-meta-row">
+                            <div class="meta-field-group">
+                                <label for="new-goal-category">Subject / Category:</label>
+                                <select
+                                    id="new-goal-category"
+                                    class="goal-meta-select"
+                                >
+                                    <option value="General Study">General Study</option>
+                                </select>
+                            </div>
+            
+                            <div class="meta-field-group">
+                                <label>Priority Level:</label>
+                                <div class="priority-selector-radios">
+                                    <label class="priority-pill-option normal">
+                                        <input
+                                            type="radio"
+                                            name="goal-priority"
+                                            value="normal"
+                                            checked
+                                        >
+                                        <span class="priority-label">
+                                            <span class="priority-dot"></span> Normal
+                                        </span>
+                                    </label>
+                                    <label class="priority-pill-option medium">
+                                        <input
+                                            type="radio"
+                                            name="goal-priority"
+                                            value="medium"
+                                        >
+                                        <span class="priority-label">
+                                            <span class="priority-dot"></span> Medium
+                                        </span>
+                                    </label>
+                                    <label class="priority-pill-option high">
+                                        <input
+                                            type="radio"
+                                            name="goal-priority"
+                                            value="high"
+                                        >
+                                        <span class="priority-label">
+                                            <span class="priority-dot"></span> High
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+            
+                    <!-- Quick Suggestions / Inspiration Pills -->
+                    <div class="goal-quick-suggestions">
+                        <span class="suggestions-label">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+                            Smart Goal Ideas:
+                        </span>
+                        <div class="suggestions-list" id="goal-suggestions-container">
+                            <button
+                                type="button"
+                                class="suggestion-chip"
+                                onclick="quickAddGoal('Solve 5 Java OOP practice questions', 'Java Programming', 'high')"
+                            >
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                                5 Java OOP Questions
+                            </button>
+                            <button
+                                type="button"
+                                class="suggestion-chip"
+                                onclick="quickAddGoal('Revise NumPy Arrays and Matrix slicing', 'Python for Data Science', 'medium')"
+                            >
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+                                Python NumPy Review
+                            </button>
+                            <button
+                                type="button"
+                                class="suggestion-chip"
+                                onclick="quickAddGoal('Implement responsive Flexbox card grid', 'Full Stack Web Development', 'normal')"
+                            >
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                                CSS Flexbox Practice
+                            </button>
+                            <button
+                                type="button"
+                                class="suggestion-chip"
+                                onclick="quickAddGoal('Complete 1 Alpha AI Quiz session', 'General Study', 'medium')"
+                            >
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z"/></svg>
+                                Take AI Quiz
+                            </button>
+                            <button
+                                type="button"
+                                class="suggestion-chip"
+                                onclick="quickAddGoal('Read 25 mins of subject syllabus notes', 'General Study', 'normal')"
+                            >
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg>
+                                25 Mins Notes Reading
+                            </button>
+                        </div>
+                    </div>
+            
+                </div>
+            
+            
+                <!-- Goals Feed & Filter Card -->
+                <div class="goals-feed-card">
+            
+                    <div class="feed-header-bar">
+                        <div class="feed-filters">
+                            <button
+                                type="button"
+                                class="feed-filter-btn active"
+                                id="goal-filter-all"
+                                onclick="setGoalFilter('all')"
+                            >
+                                All Goals <span class="filter-count" id="count-filter-all">0</span>
+                            </button>
+                            <button
+                                type="button"
+                                class="feed-filter-btn"
+                                id="goal-filter-active"
+                                onclick="setGoalFilter('active')"
+                            >
+                                In Progress <span class="filter-count" id="count-filter-active">0</span>
+                            </button>
+                            <button
+                                type="button"
+                                class="feed-filter-btn"
+                                id="goal-filter-completed"
+                                onclick="setGoalFilter('completed')"
+                            >
+                                Completed <span class="filter-count" id="count-filter-completed">0</span>
+                            </button>
+                        </div>
+            
+                        <div class="feed-actions">
+                            <button
+                                type="button"
+                                class="clear-done-btn"
+                                onclick="clearCompletedGoals()"
+                                title="Remove all completed goals"
+                            >
+                                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></span> Clear Completed
+                            </button>
+                        </div>
+                    </div>
+            
+                    <!-- Goals Interactive Container -->
+                    <div
+                        id="goals-page-list"
+                        class="goals-page-interactive-list"
+                    >
+                        <!-- Populated dynamically by renderGoalsPage() -->
+                    </div>
+            
+                </div>
+            
+            </section>
 
-            <button
-                class="save-subject-btn"
-                onclick="saveSubject()"
+
+            <!-- =================================================
+                 7. PROGRESS & ANALYTICS (Source: frontend/sections/progress.html)
+                 ================================================= -->
+            <!-- =================================================
+                 PROGRESS & ANALYTICS SECTION COMPONENT
+                 Source: frontend/sections/progress.html
+                 ================================================= -->
+            
+            <section
+                id="progress-page"
+                class="page"
             >
-                💾 Save Subject
-            </button>
+            
+                <!-- Page Header -->
+                <div class="page-header progress-header-flex">
+                    <div>
+                        <span class="page-label">
+                            ANALYTICS &amp; MASTERY
+                        </span>
+                        <h1>
+                            Learning Progress &amp; Analytics
+                        </h1>
+                        <p>
+                            Comprehensive real-time tracking of syllabus mastery, topic milestones, and academic habits.
+                        </p>
+                    </div>
+            
+                    <div class="progress-header-sync">
+                        <span class="sync-badge">
+                            <span class="sync-dot"></span> Live Sync Enabled
+                        </span>
+                        <button
+                            type="button"
+                            class="refresh-progress-btn"
+                            onclick="renderProgressPage()"
+                            title="Refresh progress calculations"
+                        >
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></svg>
+                            <span>Refresh</span>
+                        </button>
+                    </div>
+                </div>
+            
+            
+                <!-- Top KPI Metric Cards Grid -->
+                <div class="progress-kpi-grid">
+            
+                    <!-- 1. Overall Mastery -->
+                    <div class="progress-kpi-card mastery-card">
+                        <div class="kpi-card-header">
+                            <div class="kpi-icon-wrap primary-gradient-bg">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                            </div>
+                            <span class="kpi-badge" id="progress-mastery-level-badge">Beginner</span>
+                        </div>
+                        <div class="kpi-metric-wrap">
+                            <strong
+                                id="progress-overall-mastery"
+                                class="kpi-big-number"
+                            >0%</strong>
+                            <span class="kpi-metric-title">Overall Curriculum Mastery</span>
+                        </div>
+                        <div class="kpi-mini-bar-track">
+                            <div
+                                id="progress-overall-bar"
+                                class="kpi-mini-bar-fill"
+                                style="width: 0%;"
+                            ></div>
+                        </div>
+                        <span class="kpi-footer-note" id="progress-mastery-sub">
+                            Calculated across all subject syllabus topics
+                        </span>
+                    </div>
+            
+                    <!-- 2. Topics Mastered -->
+                    <div class="progress-kpi-card">
+                        <div class="kpi-card-header">
+                            <div class="kpi-icon-wrap emerald-gradient-bg">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            </div>
+                            <span class="kpi-sub-pill" id="progress-topics-percent-pill">0% Done</span>
+                        </div>
+                        <div class="kpi-metric-wrap">
+                            <strong
+                                id="progress-topics-ratio"
+                                class="kpi-big-number"
+                            >0 / 0</strong>
+                            <span class="kpi-metric-title">Topics Mastered</span>
+                        </div>
+                        <div class="kpi-mini-bar-track">
+                            <div
+                                id="progress-topics-bar"
+                                class="kpi-mini-bar-fill emerald"
+                                style="width: 0%;"
+                            ></div>
+                        </div>
+                        <span class="kpi-footer-note" id="progress-topics-remaining">
+                            0 topics remaining to master
+                        </span>
+                    </div>
+            
+                    <!-- 3. Enrolled Subjects & Modules -->
+                    <div class="progress-kpi-card">
+                        <div class="kpi-card-header">
+                            <div class="kpi-icon-wrap violet-gradient-bg">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                            </div>
+                            <span class="kpi-sub-pill" id="progress-subjects-badge">Active</span>
+                        </div>
+                        <div class="kpi-metric-wrap">
+                            <strong
+                                id="progress-subject-count"
+                                class="kpi-big-number"
+                            >0</strong>
+                            <span class="kpi-metric-title">Enrolled Subjects</span>
+                        </div>
+                        <div class="kpi-sub-stats-row">
+                            <span class="sub-stat-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/></svg> <strong id="progress-units-count">0</strong> Units</span>
+                            <span class="sub-stat-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> <strong id="progress-materials-count">0</strong> Files</span>
+                        </div>
+                        <span class="kpi-footer-note">Structured syllabus modules</span>
+                    </div>
+            
+                    <!-- 4. Daily Goals Completed -->
+                    <div class="progress-kpi-card">
+                        <div class="kpi-card-header">
+                            <div class="kpi-icon-wrap amber-gradient-bg">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                            </div>
+                            <span class="kpi-sub-pill" id="progress-goals-ratio-pill">0 Done</span>
+                        </div>
+                        <div class="kpi-metric-wrap">
+                            <strong
+                                id="progress-goal-count"
+                                class="kpi-big-number"
+                            >0</strong>
+                            <span class="kpi-metric-title">Goals Completed</span>
+                        </div>
+                        <div class="kpi-mini-bar-track">
+                            <div
+                                id="progress-goals-bar"
+                                class="kpi-mini-bar-fill amber"
+                                style="width: 0%;"
+                            ></div>
+                        </div>
+                        <span class="kpi-footer-note" id="progress-goals-rate-text">
+                            0% daily goal success rate
+                        </span>
+                    </div>
+            
+                </div>
+            
+            
+                <!-- Academic Milestone Journey & Smart Focus Row -->
+                <div class="progress-journey-row">
+            
+                    <!-- Milestone Stepper Card -->
+                    <div class="progress-journey-card">
+                        <div class="journey-header">
+                            <div>
+                                <span class="panel-label">ACADEMIC RANK &amp; MILESTONES</span>
+                                <h3>Curriculum Mastery Journey</h3>
+                            </div>
+                            <span class="level-indicator-chip" id="current-rank-chip">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <span id="current-rank-text">Explorer</span>
+                            </span>
+                        </div>
+            
+                        <div class="milestone-stages-container">
+                            <div class="stage-step" id="stage-step-1">
+                                <div class="stage-node-circle">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-7"/><path d="M12 15c-3.3 0-6-2.7-6-6 3.3 0 6 2.7 6 6z"/><path d="M12 15c3.3 0 6-2.7 6-6-3.3 0-6 2.7-6 6z"/></svg>
+                                </div>
+                                <div class="stage-info">
+                                    <strong>Explorer</strong>
+                                    <span>0% - 25%</span>
+                                </div>
+                            </div>
+                            <div class="stage-connector" id="stage-conn-1"></div>
+                            <div class="stage-step" id="stage-step-2">
+                                <div class="stage-node-circle">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                                </div>
+                                <div class="stage-info">
+                                    <strong>Apprentice</strong>
+                                    <span>26% - 50%</span>
+                                </div>
+                            </div>
+                            <div class="stage-connector" id="stage-conn-2"></div>
+                            <div class="stage-step" id="stage-step-3">
+                                <div class="stage-node-circle">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                                </div>
+                                <div class="stage-info">
+                                    <strong>Scholar</strong>
+                                    <span>51% - 75%</span>
+                                </div>
+                            </div>
+                            <div class="stage-connector" id="stage-conn-3"></div>
+                            <div class="stage-step" id="stage-step-4">
+                                <div class="stage-node-circle">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                                </div>
+                                <div class="stage-info">
+                                    <strong>Master</strong>
+                                    <span>76% - 100%</span>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="journey-encouragement" id="journey-encouragement-box">
+                            <span class="sparkle-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z"/></svg>
+                            </span>
+                            <p id="journey-quote-text">
+                                You're making steady headway. Complete syllabus topics to advance to the next rank!
+                            </p>
+                        </div>
+                    </div>
+            
+                    <!-- Smart Next-Step Recommendation Card -->
+                    <div class="progress-focus-recommendation-card" id="progress-focus-card">
+                        <div class="focus-header">
+                            <span class="recommendation-badge">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>
+                                SMART STUDY FOCUS
+                            </span>
+                            <span class="focus-priority-tag">Highest Impact</span>
+                        </div>
+                        <div class="focus-content" id="focus-recommendation-content">
+                            <!-- Populated dynamically by renderProgressPage() -->
+                        </div>
+                    </div>
+            
+                </div>
+            
+            
+                <!-- Visual Analytics Bar Graph Section -->
+                <div class="progress-section-block">
+                    <div class="section-title-wrap">
+                        <div>
+                            <span class="panel-label">VISUAL ANALYTICS &amp; BENCHMARKS</span>
+                            <h2>Subject Mastery &amp; Progress Bar Graph</h2>
+                        </div>
+                        <div class="graph-legend-wrap">
+                            <span class="graph-legend-item"><span class="legend-color-box mastery-gradient"></span> Subject Mastery %</span>
+                            <span class="graph-legend-item"><span class="legend-line-box benchmark-dashed"></span> Target Benchmark (80%)</span>
+                        </div>
+                    </div>
+            
+                    <div class="progress-bar-graph-card">
+                        <div class="graph-card-header">
+                            <div class="graph-kpi-summary">
+                                <span class="graph-sub-label">CURRICULUM DISTRIBUTION</span>
+                                <h3 id="graph-subjects-overview-title">Subject-by-Subject Analytics</h3>
+                            </div>
+                            <div class="graph-metrics-chips">
+                                <span class="graph-chip" id="graph-highest-subject-chip">Top: --</span>
+                                <span class="graph-chip secondary" id="graph-lowest-subject-chip">Focus: --</span>
+                            </div>
+                        </div>
+            
+                        <!-- Bar Graph Chart Area -->
+                        <div class="analytics-bar-chart-container" id="analytics-bar-chart-container">
+                            <!-- Populated dynamically with bars by renderProgressBarChart() -->
+                        </div>
+            
+                        <div class="graph-card-footer">
+                            <span class="graph-footer-hint">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                                Tip: Hover over any bar to view mastery breakdown or click to open syllabus details.
+                            </span>
+                            <span class="graph-average-badge" id="graph-average-badge">Curriculum Average: 0%</span>
+                        </div>
+                    </div>
+                </div>
+            
+            
+                <!-- Enrolled Subjects Detailed Breakdown -->
+                <div class="progress-section-block">
+                    <div class="section-title-wrap">
+                        <div>
+                            <span class="panel-label">DETAILED BREAKDOWN</span>
+                            <h2>Subject Mastery &amp; Topic Progress</h2>
+                        </div>
+                        <button
+                            type="button"
+                            class="view-all-subjects-btn"
+                            onclick="showPage('subjects')"
+                        >
+                            Manage Subjects →
+                        </button>
+                    </div>
+            
+                    <div
+                        class="progress-subjects-grid"
+                        id="progress-subjects-grid"
+                    >
+                        <!-- Populated dynamically with subject progress cards -->
+                    </div>
+                </div>
+            
+            
+                <!-- Milestones & Badges Grid -->
+                <div class="progress-section-block">
+                    <div class="section-title-wrap">
+                        <div>
+                            <span class="panel-label">RECOGNITION</span>
+                            <h2>Badges &amp; Study Achievements</h2>
+                        </div>
+                        <span
+                            class="achievements-unlocked-summary"
+                            id="achievements-summary-badge"
+                        >0 / 6 Unlocked</span>
+                    </div>
+            
+                    <div
+                        class="achievements-grid"
+                        id="achievements-grid"
+                    >
+                        <!-- Populated dynamically with interactive badges -->
+                    </div>
+                </div>
+            
+            </section>
 
-        </div>
+        </main>
 
     </div>
 
-</div>
 
-
-<!-- =====================================================
-     SUBJECT DETAILS MODAL
-===================================================== -->
-
-<div id="subject-details-modal" class="subject-modal">
-
-    <div class="subject-details-box">
-
-        <button
-            class="subject-modal-close"
-            onclick="closeSubjectDetails()"
+    <!-- =====================================================
+         8. MODALS & POPUPS (Source: frontend/sections/modals.html)
+         ===================================================== -->
+    <!-- =====================================================
+         GLOBAL MODALS & POPUPS COMPONENT
+         Source: frontend/sections/modals.html
+         ===================================================== -->
+    
+    <!-- 1. SUBJECT ADD / EDIT MODAL -->
+    <div
+        id="subject-modal"
+        class="modal"
+    >
+        <div class="modal-content subject-modal-content">
+    
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <div>
+                    <span
+                        id="subject-modal-badge"
+                        class="modal-badge"
+                    >
+                        NEW SUBJECT
+                    </span>
+                    <h2 id="subject-modal-title">
+                        Add Subject
+                    </h2>
+                </div>
+                <button
+                    class="modal-close"
+                    onclick="closeSubjectModal()"
+                    title="Close"
+                >
+                    ×
+                </button>
+            </div>
+    
+            <!-- Modal Body -->
+            <div class="modal-body">
+    
+                <!-- Subject Name -->
+                <div class="form-group">
+                    <label for="subject-name-input">
+                        Subject Name
+                    </label>
+                    <input
+                        id="subject-name-input"
+                        type="text"
+                        placeholder="e.g. Java Programming"
+                    >
+                </div>
+    
+                <!-- Subject Icon -->
+                <div class="form-group">
+                    <label>
+                        Subject Icon
+                    </label>
+                    <input
+                        id="subject-icon-input"
+                        type="hidden"
+                        value="📚"
+                    >
+                    <div class="icon-picker">
+                        <button
+                            type="button"
+                            class="icon-picker-btn"
+                            data-icon="📚"
+                            onclick="selectSubjectIcon('📚', this)"
+                            title="General &amp; Core Studies"
+                        >
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg>
+                        </button>
+                        <button
+                            type="button"
+                            class="icon-picker-btn"
+                            data-icon="💻"
+                            onclick="selectSubjectIcon('💻', this)"
+                            title="Computer Science &amp; Systems"
+                        >
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        </button>
+                        <button
+                            type="button"
+                            class="icon-picker-btn"
+                            data-icon="🐍"
+                            onclick="selectSubjectIcon('🐍', this)"
+                            title="Python &amp; Programming"
+                        >
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+                        </button>
+                        <button
+                            type="button"
+                            class="icon-picker-btn"
+                            data-icon="☕"
+                            onclick="selectSubjectIcon('☕', this)"
+                            title="Java &amp; Backend"
+                        >
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                        </button>
+                        <button
+                            type="button"
+                            class="icon-picker-btn"
+                            data-icon="🌐"
+                            onclick="selectSubjectIcon('🌐', this)"
+                            title="Web Development &amp; Internet"
+                        >
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        </button>
+                        <button
+                            type="button"
+                            class="icon-picker-btn"
+                            data-icon="🗄️"
+                            onclick="selectSubjectIcon('🗄️', this)"
+                            title="Database &amp; SQL"
+                        >
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                        </button>
+                        <button
+                            type="button"
+                            class="icon-picker-btn"
+                            data-icon="📊"
+                            onclick="selectSubjectIcon('📊', this)"
+                            title="Analytics &amp; Statistics"
+                        >
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                        </button>
+                        <button
+                            type="button"
+                            class="icon-picker-btn"
+                            data-icon="🧠"
+                            onclick="selectSubjectIcon('🧠', this)"
+                            title="Artificial Intelligence &amp; ML"
+                        >
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                        </button>
+                        <button
+                            type="button"
+                            class="icon-picker-btn"
+                            data-icon="📐"
+                            onclick="selectSubjectIcon('📐', this)"
+                            title="Mathematics &amp; Geometry"
+                        >
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 22 1-1h18l1 1"/><path d="M21 21 8.5 8.5"/><path d="m3 3 7 7"/><circle cx="12" cy="5" r="2"/></svg>
+                        </button>
+                        <button
+                            type="button"
+                            class="icon-picker-btn"
+                            data-icon="🔬"
+                            onclick="selectSubjectIcon('🔬', this)"
+                            title="Physics &amp; Science"
+                        >
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2v7.31L4.14 20.3A1 1 0 0 0 5 21.75h14a1 1 0 0 0 .86-1.45L14 9.31V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></svg>
+                        </button>
+                    </div>
+                </div>
+    
+                <!-- Description -->
+                <div class="form-group">
+                    <label for="subject-description-input">
+                        Description
+                    </label>
+                    <textarea
+                        id="subject-description-input"
+                        rows="3"
+                        placeholder="Short description of this subject..."
+                    ></textarea>
+                </div>
+    
+                <!-- Syllabus -->
+                <div class="form-group">
+                    <div class="form-label-row">
+                        <label>
+                            Syllabus
+                        </label>
+                        <button
+                            type="button"
+                            class="small-add-btn"
+                            onclick="addSyllabusInput()"
+                        >
+                            + Add
+                        </button>
+                    </div>
+                    <div
+                        id="syllabus-input-list"
+                        class="dynamic-input-list"
+                    ></div>
+                </div>
+    
+                <!-- Topics -->
+                <div class="form-group">
+                    <div class="form-label-row">
+                        <label>
+                            Topics
+                        </label>
+                        <button
+                            type="button"
+                            class="small-add-btn"
+                            onclick="addTopicInput()"
+                        >
+                            + Add
+                        </button>
+                    </div>
+                    <div
+                        id="topic-input-list"
+                        class="dynamic-input-list"
+                    ></div>
+                </div>
+    
+            </div>
+    
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button
+                    class="secondary-btn"
+                    onclick="closeSubjectModal()"
+                >
+                    Cancel
+                </button>
+                <button
+                    class="primary-btn"
+                    onclick="saveSubject()"
+                >
+                    Save Subject
+                </button>
+            </div>
+    
+        </div>
+    </div>
+    
+    
+    <!-- 2. SUBJECT DETAILS MODAL (POPUP BOX) -->
+    <div
+        id="subject-details-modal"
+        class="modal subject-details-modal-overlay"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="subject-details-modal-title"
+    >
+        <div
+            class="modal-content subject-details-modal-content"
+            onclick="event.stopPropagation()"
         >
-            ×
-        </button>
-
-        <div id="subject-details-content"></div>
-
+            <div id="subject-details-dynamic-wrapper">
+                <!-- Dynamically populated with professional subject details -->
+            </div>
+        </div>
     </div>
-
-</div>
-
-        <!-- =====================================================
-             PROGRESS PAGE
-        ====================================================== -->
-
-        <section
-            id="progress-page"
-            class="page">
-
-
-            <div class="simple-page-header">
-
-                <h1>
-                    📊 My Progress
-                </h1>
-
-                <p>
-                    See how your learning is going.
-                </p>
-
+    
+    
+    <!-- 3. ASSIGNMENT ADD / EDIT MODAL -->
+    <div
+        id="assignment-modal"
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="assignment-modal-title"
+    >
+        <div
+            class="modal-content assignment-modal-content"
+            onclick="event.stopPropagation()"
+        >
+            <div class="modal-header">
+                <div>
+                    <span id="assignment-modal-badge" class="modal-badge">
+                        TASK &amp; DEADLINE
+                    </span>
+                    <h2 id="assignment-modal-title">
+                        Add Assignment
+                    </h2>
+                </div>
+                <button
+                    type="button"
+                    class="modal-close"
+                    onclick="closeAssignmentModal()"
+                    title="Close"
+                >
+                    ×
+                </button>
             </div>
-
-
-            <div class="progress-cards">
-
-
-                <div class="progress-stat">
-
-                    <span>
-                        📚
-                    </span>
-
-                    <h2>
-                        51
-                    </h2>
-
-                    <p>
-                        Topics Completed
-                    </p>
-
+    
+            <form id="assignment-modal-form" onsubmit="handleSaveAssignment(event)">
+                <input type="hidden" id="assignment-edit-id" value="">
+    
+                <div class="modal-body">
+                    <!-- Title -->
+                    <div class="form-group">
+                        <label for="assignment-title-input">Assignment / Homework Title *</label>
+                        <input
+                            id="assignment-title-input"
+                            type="text"
+                            placeholder="e.g. Java Multithreading Lab &amp; Thread Pools"
+                            required
+                            autocomplete="off"
+                        >
+                    </div>
+    
+                    <div class="form-row-2">
+                        <!-- Subject Select -->
+                        <div class="form-group">
+                            <label for="assignment-subject-select">Subject / Course *</label>
+                            <select id="assignment-subject-select" class="form-select" required>
+                                <!-- Populated dynamically with enrolled subjects -->
+                            </select>
+                        </div>
+    
+                        <!-- Type Select -->
+                        <div class="form-group">
+                            <label for="assignment-type-select">Task Type</label>
+                            <select id="assignment-type-select" class="form-select">
+                                <option value="Homework">Homework</option>
+                                <option value="Lab Report">Lab Report</option>
+                                <option value="Project">Project</option>
+                                <option value="Problem Set">Problem Set</option>
+                                <option value="Reading / Essay">Reading / Essay</option>
+                                <option value="Quiz Prep">Quiz Prep</option>
+                            </select>
+                        </div>
+                    </div>
+    
+                    <div class="form-row-2">
+                        <!-- Due Date -->
+                        <div class="form-group">
+                            <label for="assignment-due-date-input">Due Date *</label>
+                            <input
+                                id="assignment-due-date-input"
+                                type="date"
+                                required
+                            >
+                        </div>
+    
+                        <!-- Priority -->
+                        <div class="form-group">
+                            <label for="assignment-priority-select">Priority Level</label>
+                            <select id="assignment-priority-select" class="form-select">
+                                <option value="normal">Normal</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High Priority</option>
+                            </select>
+                        </div>
+                    </div>
+    
+                    <!-- Progress Slider -->
+                    <div class="form-group">
+                        <div class="slider-label-row">
+                            <label for="assignment-progress-slider">Current Progress</label>
+                            <span id="assignment-progress-val-display" class="slider-value-pill">0%</span>
+                        </div>
+                        <input
+                            type="range"
+                            id="assignment-progress-slider"
+                            min="0"
+                            max="100"
+                            value="0"
+                            step="5"
+                            oninput="document.getElementById('assignment-progress-val-display').textContent = this.value + '%'"
+                        >
+                    </div>
+    
+                    <!-- Notes / Description -->
+                    <div class="form-group">
+                        <label for="assignment-notes-input">Instructions / Teacher Notes</label>
+                        <textarea
+                            id="assignment-notes-input"
+                            rows="3"
+                            placeholder="Add teacher instructions, submission requirements, or helpful links..."
+                        ></textarea>
+                    </div>
                 </div>
-
-
-
-                <div class="progress-stat">
-
-                    <span>
-                        ⏱️
-                    </span>
-
-                    <h2>
-                        28h
-                    </h2>
-
-                    <p>
-                        Total Study Time
-                    </p>
-
+    
+                <div class="modal-footer">
+                    <button type="button" class="btn-cancel" onclick="closeAssignmentModal()">Cancel</button>
+                    <button type="submit" class="btn-save" id="assignment-submit-btn">Save Assignment</button>
                 </div>
+            </form>
+        </div>
+    </div>
+    
+    
+    <!-- 4. DYNAMIC & CHAT FILE INPUTS -->
+    <input
+        type="file"
+        id="subject-dynamic-file-input"
+        hidden
+    >
+    
+    <input
+        type="file"
+        id="photo-input"
+        accept="image/*"
+        capture="environment"
+        hidden
+    >
+    
+    <input
+        type="file"
+        id="document-input"
+        accept=".pdf,.doc,.docx,.txt"
+        hidden
+    >
 
 
-
-                <div class="progress-stat">
-
-                    <span>
-                        🔥
-                    </span>
-
-                    <h2>
-                        5
-                    </h2>
-
-                    <p>
-                        Current Streak
-                    </p>
-
-                </div>
-
-
-            </div>
-
-
-        </section>
-
-
-    </main>
-
-
-</div>
-
-
-
-<script src="script.js"></script>
-
+    <!-- =====================================================
+         MODULAR JAVASCRIPT ARCHITECTURE
+         Separated by section for clean maintainability
+         ===================================================== -->
+    <script src="js/config.js?v=3.5"></script>
+    <script src="js/navigation.js?v=3.5"></script>
+    <script src="js/dashboard.js?v=3.5"></script>
+    <script src="js/chat.js?v=3.5"></script>
+    <script src="js/subjects.js?v=3.5"></script>
+    <script src="js/assignments.js?v=3.5"></script>
+    <script src="js/goals.js?v=3.5"></script>
+    <script src="js/progress.js?v=3.5"></script>
+    <script src="js/modals.js?v=3.5"></script>
+    <script src="js/app.js?v=3.5"></script>
 
 </body>
 

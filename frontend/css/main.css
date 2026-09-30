@@ -1,0 +1,399 @@
+/* =========================================================
+   MASTER SAHAB
+   AI STUDENT ASSISTANT
+   WHITE + BLUE THEME
+   ========================================================= */
+
+
+/* =========================================================
+   1. ROOT / THEME
+   ========================================================= */
+
+:root {
+    --primary: #2563EB;
+    --primary-hover: #1D4ED8;
+    --primary-light: #EFF6FF;
+
+    --background: #F8FAFC;
+    --surface: #FFFFFF;
+    --surface-soft: #EFF6FF;
+
+    --text-primary: #111827;
+    --text-secondary: #374151;
+    --text-light: #6B7280;
+
+    --border: #E5E7EB;
+    --border-dark: #D1D5DB;
+
+    --accent: #3B82F6;
+    --accent-light: #DBEAFE;
+
+    --success: #059669;
+    --danger: #DC2626;
+
+    --shadow-sm:
+        0 2px 8px rgba(15, 23, 42, 0.06);
+
+    --shadow-md:
+        0 8px 25px rgba(15, 23, 42, 0.09);
+
+    --shadow-lg:
+        0 15px 45px rgba(15, 23, 42, 0.14);
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+}
+
+
+/* =========================================================
+   2. RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--background);
+    color: var(--text-primary);
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    font-size: 15px;
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+input,
+textarea {
+    color: var(--text-primary);
+}
+
+::selection {
+    background: var(--primary);
+    color: #FFFFFF;
+}
+
+
+
+/* =========================================================
+   6. PAGES
+   ========================================================= */
+
+.page {
+    display: none;
+
+    min-height: 100vh;
+
+    padding: 38px 42px 60px;
+}
+
+.page.active {
+    display: block;
+}
+
+
+/* =========================================================
+   7. PAGE HEADER
+   ========================================================= */
+
+.page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.page-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--primary);
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.page-header h1 {
+    color: var(--text-primary);
+
+    font-size: clamp(25px, 3vw, 34px);
+
+    line-height: 1.15;
+
+    font-weight: 800;
+
+    letter-spacing: -0.8px;
+}
+
+.page-header p {
+    margin-top: 8px;
+
+    color: var(--text-secondary);
+
+    font-size: 14px;
+}
+
+
+/* Dashboard date */
+
+.dashboard-date-box {
+    min-width: 145px;
+
+    padding: 13px 17px;
+
+    background: var(--surface-soft);
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    text-align: right;
+}
+
+.dashboard-date-box span {
+    display: block;
+
+    color: var(--text-light);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+}
+
+.dashboard-date-box strong {
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--text-primary);
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   8. BUTTONS
+   ========================================================= */
+
+.primary-btn {
+    min-height: 42px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 17px;
+
+    border: 1px solid var(--primary);
+
+    border-radius: 9px;
+
+    background: var(--primary);
+    color: #FFFFFF;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.primary-btn:hover {
+    background: var(--primary-hover);
+
+    box-shadow: var(--shadow-sm);
+
+    transform: translateY(-1px);
+}
+
+.secondary-btn {
+    min-height: 42px;
+
+    padding: 0 17px;
+
+    border: 1px solid var(--border-dark);
+
+    border-radius: 9px;
+
+    background: #FFFFFF;
+
+    color: var(--text-primary);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition: 0.2s ease;
+}
+
+.secondary-btn:hover {
+    background: var(--surface-soft);
+
+    border-color: #BFDBFE;
+}
+
+.text-button {
+    border: 0;
+
+    background: transparent;
+
+    color: var(--primary);
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.text-button:hover {
+    text-decoration: underline;
+}
+
+
+
+/* =========================================================
+   27. SCROLLBARS
+   ========================================================= */
+
+* {
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        #CBD5E1
+        transparent;
+}
+
+*::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+
+    border-radius: 20px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: #94A3B8;
+}
+
+
+
+/* =========================================================
+   32. EMPTY / FALLBACK STATES
+   ========================================================= */
+
+.empty-state {
+    padding: 40px 20px;
+
+    color: var(--text-light);
+
+    text-align: center;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   33. ANIMATIONS
+   ========================================================= */
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+@keyframes messageIn {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(4px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+@keyframes menuIn {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+.page.active {
+    animation: fadeIn 0.18s ease;
+}
+
+
+/* =========================================================
+   34. HIDDEN FILE INPUTS
+   ========================================================= */
+
+#photo-input,
+#document-input {
+    display: none;
